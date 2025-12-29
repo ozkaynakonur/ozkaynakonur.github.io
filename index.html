@@ -6,7 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -34,21 +36,29 @@
       align-items: center;
     }
 
-    nav .name { font-weight: 600; font-size: 1.1em; }
+    nav .name {
+      font-weight: 600;
+      font-size: 1.1em;
+      white-space: nowrap;
+    }
 
     nav .menu {
       display: flex;
       gap: 18px;
       flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     nav .menu a {
       text-decoration: none;
       color: #222;
       font-size: 0.95em;
+      white-space: nowrap;
     }
 
-    nav .menu a:hover { text-decoration: underline; }
+    nav .menu a:hover {
+      text-decoration: underline;
+    }
 
     section {
       max-width: 1000px;
@@ -56,20 +66,34 @@
       padding: 80px 24px;
     }
 
-    #about { padding-top: 140px; }
+    #about {
+      padding-top: 140px;
+    }
 
-    h2 { margin-bottom: 0.8em; }
-    h3 { margin-top: 1.6em; }
+    h2 {
+      margin: 0 0 0.8em;
+    }
 
-    ul { padding-left: 20px; }
-    li { margin-bottom: 8px; }
+    h3 {
+      margin-top: 1.6em;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
 
     a.doi {
       color: #0366d6;
       text-decoration: none;
     }
 
-    a.doi:hover { text-decoration: underline; }
+    a.doi:hover {
+      text-decoration: underline;
+    }
 
     .hero {
       display: flex;
@@ -85,15 +109,24 @@
       object-fit: cover;
     }
 
-    .hero-text h1 { margin: 0; font-size: 2.4em; }
+    .hero-text h1 {
+      margin: 0;
+      font-size: 2.4em;
+    }
 
-    .hero-text .title { margin: 6px 0 1em; color: #555; }
+    .hero-text .title {
+      margin: 6px 0 1em;
+      color: #555;
+    }
 
-    .hero-text p { max-width: 520px; }
+    .hero-text p {
+      margin: 0 0 1em;
+      max-width: 520px;
+    }
 
     .contact-icon {
-      font-size: 3em;
-      margin-top: 20px;
+      font-size: 3.5em;
+      margin-bottom: 16px;
     }
 
     footer {
@@ -104,8 +137,20 @@
     }
 
     @media (max-width: 900px) {
-      .hero { flex-direction: column; text-align: center; }
-      .nav-inner { flex-direction: column; align-items: flex-start; }
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      nav .menu {
+        justify-content: flex-start;
+      }
     }
   </style>
 </head>
@@ -136,12 +181,19 @@
         The Ohio State University
       </p>
       <p>
-        I am a PhD candidate in Multilingual Language Education and a Graduate Teaching Associate
-        in the Intercultural English Language Programs (IELP).
+        I am a PhD candidate in Multilingual Language Education at The Ohio State University and a Graduate Teaching Associate
+        in the Intercultural English Language Programs (IELP). I hold an MA in Teaching English as a Foreign Language (TEFL)
+        and a BA in English Language Teaching (ELT).
       </p>
       <p>
-        My research examines how language ideologies—particularly accentism and native-speakerism—
-        shape judgments of legitimacy and competence in English language education.
+        My research examines how language ideologies—particularly accentism and native-speakerism—shape judgments of
+        legitimacy, competence, and professionalism in English language education. Drawing on educational sociolinguistics,
+        raciolinguistics, and critical discourse analysis, my work focuses on TESOL teacher education and multilingual higher
+        education contexts.
+      </p>
+      <p>
+        Methodologically, I work with qualitative and mixed-methods designs, including interviews, critical discourse
+        analysis, and experimental approaches such as verbal guise tasks.
       </p>
     </div>
   </div>
@@ -150,17 +202,68 @@
 <section id="teaching">
   <h2>Teaching</h2>
   <p>
-    My teaching focuses on language teacher education and multilingual writing across undergraduate,
-    graduate, and adult education contexts.
+    My teaching focuses on language teacher education and multilingual writing. Across undergraduate, graduate, and adult
+    education contexts, I design instruction that foregrounds linguistic diversity, critical language awareness, and
+    equitable access to academic participation.
   </p>
+  <p>
+    Pedagogically, I draw on principles from educational linguistics and translingual approaches to support multilingual
+    learners’ rhetorical flexibility, disciplinary writing practices, and critical engagement with language norms.
+  </p>
+  <h3>Courses Taught</h3>
+  <ul>
+    <li>Applied Linguistics P1/2: Educational Linguistics, TESOL Methods, Sociolinguistics, and Language Assessment</li>
+    <li>ENGL 100: Advanced English Composition Skills for College Students</li>
+    <li>EDUTL 5902: Advanced Academic Writing for Multilingual Graduate Students</li>
+    <li>EDUTL 1902: Advanced Academic Writing for Multilingual Undergraduate Students</li>
+    <li>Advanced Academic English for Multilingual Undergraduate Students</li>
+    <li>English for Specific Purposes for Adult, Multilingual Learners of English</li>
+  </ul>
 </section>
 
 <section id="methods">
   <h2>Research & Methodological Expertise</h2>
   <p>
-    My research adopts mixed-methods designs grounded in critical sociolinguistics,
-    integrating quantitative and qualitative approaches.
+    My research adopts mixed-methods designs grounded in critical sociolinguistics. I integrate quantitative and qualitative
+    approaches to examine language ideologies, accentism, multilingual education, and teacher identity construction across
+    higher education and teacher education contexts.
   </p>
+  <p>
+    Theoretically, my work is informed by raciolinguistics, educational sociolinguistics, Global Englishes, and critical
+    discourse analysis, with a focus on how institutional norms, market logics, and racialized language ideologies shape
+    evaluations of linguistic legitimacy and professional competence.
+  </p>
+  <h3>Quantitative Research</h3>
+  <ul>
+    <li>Experimental, survey-based, and explanatory sequential designs</li>
+    <li>Descriptive and inferential statistics (t-tests, ANOVA, MANOVA, regression)</li>
+    <li>Questionnaire design, scale development, and validation</li>
+    <li>Exploratory and confirmatory factor analysis (EFA/CFA)</li>
+    <li>Structural Equation Modeling (PLS-SEM)</li>
+    <li>Statistical tools: SPSS, Jamovi, SmartPLS</li>
+  </ul>
+  <h3>Qualitative Research</h3>
+  <ul>
+    <li>Semi-structured and phenomenological interviews</li>
+    <li>Qualitative surveys and participant observation</li>
+    <li>Reflexive thematic analysis and content analysis</li>
+    <li>Critical discourse analysis</li>
+    <li>Pattern coding and analytic memo writing</li>
+    <li>Software: Dedoose, Avidnote, Qualtrics</li>
+  </ul>
+  <h3>Mixed Methods Research</h3>
+  <ul>
+    <li>Explanatory sequential mixed-methods designs (quant → qual)</li>
+    <li>Integration of statistical trends with qualitative themes</li>
+    <li>Focus on linking numerical patterns with critical narrative accounts</li>
+  </ul>
+  <h3>Research Tools & Technologies</h3>
+  <ul>
+    <li>Praat (acoustic and phonetic analysis)</li>
+    <li>Qualtrics (survey design and administration)</li>
+    <li>Dedoose (qualitative and mixed-methods analysis)</li>
+    <li>SPSS, Jamovi, SmartPLS (quantitative analysis)</li>
+  </ul>
 </section>
 
 <section id="publications">
@@ -174,39 +277,69 @@
   <h3>Peer-Reviewed Journal Articles</h3>
   <ul>
     <li>Özkaynak, O. (2025). State monolingualism and its emotional impacts on multilingual identity construction. <em>International Journal of Multilingualism</em>. <a class="doi" href="https://doi.org/10.1080/14790718.2025.2485178" target="_blank">https://doi.org/10.1080/14790718.2025.2485178</a></li>
-
     <li>Özkaynak, O., & Peker, H. (2025). Translanguaging practices and L2 motivational self system. <em>Translation and Translanguaging in Multilingual Contexts</em>. <a class="doi" href="https://doi.org/10.1075/ttmc.00177.ozk" target="_blank">https://doi.org/10.1075/ttmc.00177.ozk</a></li>
-
     <li>Şanal, M., & Özkaynak, O. (2023). Raising multilingual learners’ awareness of social justice. <em>Focus on ELT Journal</em>, 5(2), 1–20. <a class="doi" href="https://doi.org/10.14744/felt.2023.5.2.1" target="_blank">https://doi.org/10.14744/felt.2023.5.2.1</a></li>
-
     <li>Özkaynak, O. (2023). Family language policies of Turkish parents in the United States. <em>Journal of Multilingual and Multicultural Development</em>, 46(7), 2031–2047. <a class="doi" href="https://doi.org/10.1080/01434632.2023.2277228" target="_blank">https://doi.org/10.1080/01434632.2023.2277228</a></li>
-
-    <li>Özkaynak, O. (2023). Translanguaging in applied linguistics: A systematic review. <em>L2 Journal</em>, 15(1). <a class="doi" href="https://doi.org/10.5070/L2.2460" target="_blank">https://doi.org/10.5070/L2.2460</a></li>
-
-    <li>Peker, H., & Özkaynak, O. (2020). A critical review on comprehensible input. <em>Journal of Language Education and Research</em>, 6(11), 238–250. <a class="doi" href="https://doi.org/10.31464/jlere.617587" target="_blank">https://doi.org/10.31464/jlere.617587</a></li>
-
-    <li>Peker, H., Özkaynak, O., Arslan, Z., & Tunç, H. (2019). Professional development unit perceptions. <em>International Journal of Curriculum and Instruction</em>, 11(2), 238–254.</li>
+    <li>Özkaynak, O. (2023). Translanguaging in applied linguistics: A comprehensive systematic review. <em>L2 Journal</em>, 15(1). <a class="doi" href="https://doi.org/10.5070/L2.2460" target="_blank">https://doi.org/10.5070/L2.2460</a></li>
+    <li>Peker, H., & Özkaynak, O. (2020). A critical review on the equivocal definition of comprehensible input. <em>Journal of Language Education and Research</em>, 6(11), 238–250. <a class="doi" href="https://doi.org/10.31464/jlere.617587" target="_blank">https://doi.org/10.31464/jlere.617587</a></li>
+    <li>Peker, H., Özkaynak, O., Arslan, Z., & Tunç, H. (2019). A case study on the perceptions of professional development unit members at an EFL program. <em>International Journal of Curriculum and Instruction</em>, 11(2), 238–254.</li>
   </ul>
 
   <h3>Book Reviews</h3>
   <ul>
     <li>Özkaynak, O. (2024). Review of Deumert & Makoni. <em>Critical Inquiry in Language Studies</em>. <a class="doi" href="https://doi.org/10.1080/15427587.2024.2420084" target="_blank">https://doi.org/10.1080/15427587.2024.2420084</a></li>
-
     <li>Özkaynak, O. (2023). Review of MacSwan (Ed.). <em>TESOL Journal</em>, 15(1). <a class="doi" href="https://doi.org/10.1002/tesj.724" target="_blank">https://doi.org/10.1002/tesj.724</a></li>
-
     <li>Özkaynak, O. (2023). Review of Dovchin. <em>International Journal of Multilingualism</em>, 21(3), 1734–1737. <a class="doi" href="https://doi.org/10.1080/14790718.2022.2164771" target="_blank">https://doi.org/10.1080/14790718.2022.2164771</a></li>
   </ul>
 </section>
 
 <section id="presentations">
   <h2>Presentations</h2>
+
+  <h3>Conference Presentations</h3>
   <ul>
-    <li>Özkaynak, O. (2026). Performing neutrality, enacting bias. AAAL Conference.</li>
-    <li>Özkaynak, O. (2026). Neutrality or normativity? AERA Annual Meeting.</li>
-    <li>Özkaynak, O. (2026). Accent ideologies and legitimacy. CIES Annual Meeting.</li>
-    <li>Özkaynak, O. (2025). Sequential mixed methods in TESOL. CAAL Conference.</li>
-    <li>Özkaynak, O. & Arslan, Z. (2024). Instagram teachers and language ideologies.</li>
-    <li>Özkaynak, O. (2023). Family language policies. BMRS Symposium.</li>
+    <li>Özkaynak, O. (2026). Performing neutrality, enacting bias: Language ideologies and the evaluation of Global Englishes in U.S. TESOL. 2026 American Association for Applied Linguistics Conference, Chicago, Illinois, USA (Paper presentation).</li>
+    <li>Özkaynak, O. (2026). Neutrality or normativity? Pre-Service TESOL teachers’ language ideologies in a Global Englishes context. 2026 American Educational Research Association Annual Meeting, Los Angeles, California, USA (Paper presentation).</li>
+    <li>Özkaynak, O. (2026). Neutrality isn’t innocent: Accent ideologies and the politics of legitimacy in TESOL teacher education. 2026 Annual Meeting of the Comparative and International Education Society, San Francisco, California, USA (Paper presentation).</li>
+    <li>Özkaynak, O. (2025). Exploring TESOL teacher candidates’ language ideologies through a sequential mixed methods approach. Canadian Association of Applied Linguistics Conference. Toronto, Canada. (Paper presentation).</li>
+    <li>Özkaynak, O. (2025). Exploring the impact of language ideologies on materials development: A conceptual analysis within the Global Englishes framework. The Role of Materials Development in Foreign/Second Language Teacher Education. Bergische Universität Wuppertal, Germany. (Paper presentation).</li>
+    <li>Özkaynak, O. & Arslan, Z. (2024). Exploring language ideologies of Instagram teachers. The Fifth Symposium of Southern Ontario Universities, Canada. (Poster presentation).</li>
+    <li>Özkaynak, O. & Schaffner, C. (2024). Empowering adult English language learners in TESOL through translanguaging: A strength-based approach. Ohio TESOL 2024 Conference, USA. (Paper presentation).</li>
+    <li>Özkaynak, O. (2024). Unveiling Turkey’s multilingual tapestry: Exploring identity, language ideologies, and policy implications. Sociolinguistic Symposium 25. Curtin University, Perth, Australia. (Paper presentation).</li>
+    <li>Özkaynak, O. (2024). Enhancing multilingual learners’ social justice awareness through translanguaging pedagogy. Cultivating the Pedagogy of Translanguaging. The Translanguaging Institute. New Mexico, USA. (Paper presentation).</li>
+    <li>Özkaynak, O. (2024). Translingual pedagogies: Decolonizing academic writing for multilingual students. TESOL Colombia VI. Bogotá, Colombia. (Paper presentation).</li>
+    <li>Şanal, M. & Özkaynak, O. (2024). Raising multilingual learners’ awareness of social justice through translanguaging pedagogy. 2024 TESOL Convention. Tampa, USA. (Paper presentation).</li>
+    <li>Özkaynak, O. (2024). Translanguaging and motivation in multilingual EFL learners: Unveiling the nexus. 2024 TESOL Convention. Tampa, USA. (Paper presentation).</li>
+    <li>Özkaynak, O. (2024). Language ideologies and heritage language maintenance among Turkish families in the United States. 2024 American Association for Applied Linguistics Conference, Houston, Texas, USA (Poster presentation).</li>
+    <li>Özkaynak, O. & Sayer, P. (2024). Unraveling language ideologies in Turkish pre-service EFL teachers’ perception of Global Englishes. 2024 American Association for Applied Linguistics Conference, Houston, Texas, USA (Paper presentation).</li>
+    <li>Özkaynak, O. (2024). Exploring multilingualism in Turkey: Embracing linguistic diversity and cultivating inclusive identities. 2024 American Association for Applied Linguistics Conference, Houston, Texas, USA (Paper presentation).</li>
+    <li>Özkaynak, O. (2024). Multilingualism in Türkiye: Examining Identity Development through the Lens of Perezhevanie. EHE Research Forum. The Ohio State University, USA (Paper presentation).</li>
+    <li>Özkaynak, O. (2023). Family language policies of Turkish immigrant parents in the United States. BMRS2023 - Bilingualism Matters Research Symposium 2023. University of South Carolina, USA (Poster presentation).</li>
+    <li>Özkaynak, O. (2023). Leveraging learners’ home languages for teaching English: Increasing motivation, reducing anxiety, and fostering equity. Ohio TESOL 2023 Conference, USA. (Paper presentation).</li>
+    <li>Özkaynak, O. (2023). Exploring Turkish immigrant parents’ language ideologies: Maintaining Turkish as a heritage language in the United States. International Symposium on Teaching Turkish as a Heritage and Foreign Language, Brussels, Belgium. (Paper presentation).</li>
+    <li>Özkaynak, O. (2023). Maintaining Turkish as a heritage language: Insights from Turkish immigrant parents in the United States. International Symposium on New Trends in Language Studies. Social Sciences University of Ankara. (Paper presentation).</li>
+    <li>Özkaynak, O. (2023). Translanguaging: An exploration of its impact on motivation among multilingual language learners. CCERBAL 2023. Ottawa, Canada. (Paper presentation).</li>
+    <li>Özkaynak, O. & Sayer, P. (2023). Attitudes of pre-service EFL teachers in Turkey toward varieties of English. 2023 TESOL Convention. Portland, USA. (Paper presentation).</li>
+    <li>Wong, W., Özkaynak, O., Diallo, T., Branch, R., & Luchon, A. (2023). Structured input for diverse languages and learners. CSCTFL Conference. Columbus, USA. (Workshop).</li>
+    <li>Özkaynak, O. (2023). Attitudes of Turkish Pre-Service EFL Teachers Toward Varieties of English. EHE Research Forum. The Ohio State University, USA (Paper presentation).</li>
+    <li>Özkaynak, O. (2022). Effects of translanguaging on foreign language learning anxiety and motivation. Sunshine State TESOL. Florida, USA. (Paper presentation).</li>
+    <li>Özkaynak, O. (2021). Translanguaging practices for leveraging multilingual learners’ writing skills in English. FLRT Graduate Student Symposium. Columbus, USA. (Paper presentation).</li>
+    <li>Özkaynak, O. (2021). Attitudes of Turkish EFL learners toward varieties of English. Sociolinguistics Colloquium. Columbus, USA. (Paper presentation).</li>
+    <li>Özkaynak, O., Arslan, Z., & Tunç, H. (2019). Self-efficacy and attitudes of teacher trainers towards professional development activities. The 19th INGED International ELT Conference. Ankara, Turkey. (Paper presentation).</li>
+    <li>Özkaynak, O. (2010). Attitudes toward semantic change. Geltus-Con, Gazi University. Ankara, Turkey. (Paper presentation).</li>
+  </ul>
+
+  <h3>Invited Talks & Webinars</h3>
+  <ul>
+    <li>Özkaynak, O. (2026). Sounding legitimate: Accentism, racialization, and the politics of voice in TESOL. Diversity Matters Webinar Series, Institute for Applied Linguistics & Centre for Migration and Societal Change, Eurac Research, Italy.</li>
+    <li>Özkaynak, O. (2025). Who gets to sound like an English teacher? Universidad Casa Grande, Guayaquil, Ecuador. Webinar.</li>
+    <li>Özkaynak, O. (2025). Sounding right to teach right? Accentism and the racial politics of legitimacy in TESOL teacher education. Counteracting Accent Discrimination in Education Practices (EU-funded).</li>
+    <li>Özkaynak, O. (2025). Integrating Insights: Mixed Methods Approaches in TESOL. MEF University, MA TESOL Program, Istanbul, Turkey.</li>
+    <li>Özkaynak, O. (2024). Phenomenology as a qualitative research method. University of Missouri, Department of Learning, Teaching, and Curriculum.</li>
+    <li>Özkaynak, O. (2024). PhD candidacy workshop. The Ohio State University, Department of Teaching and Learning.</li>
+    <li>Özkaynak, O. (2024). Navigating interviews as qualitative research. Youth Center for Research.</li>
+    <li>Özkaynak, O. (2024). How can TESOL teachers provide opportunities for students to be successful by using their home language as a resource? Ohio Department of Education.</li>
+    <li>Özkaynak, O. (2020). English language education in mainstream public schools in Turkey. Ministry of National Education of Turkey.</li>
   </ul>
 </section>
 
