@@ -6,8 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    /* Reset and base styles */
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 80px; /* This is the key fix */
     }
 
     body {
@@ -18,6 +20,7 @@
       line-height: 1.65;
     }
 
+    /* Fixed navbar */
     nav {
       position: fixed;
       top: 0;
@@ -64,44 +67,36 @@
       background-color: rgba(0,0,0,0.05);
     }
 
+    /* Sections with proper spacing */
     section {
       max-width: 1000px;
       margin: 0 auto;
-      padding: 40px 24px;
-      min-height: 70vh; /* Ensure sections are tall enough */
+      padding: 100px 24px 60px; /* Top padding accounts for navbar */
+      min-height: 80vh; /* Ensures sections are tall enough */
     }
 
-    /* Add space BELOW each section except the last one */
-    section:not(:last-of-type) {
-      margin-bottom: 40px; /* Add space between sections */
-      padding-bottom: 60px; /* Extra padding at bottom */
-      border-bottom: 1px solid #eee; /* Optional subtle separator */
+    /* First section needs less top padding since it's at the top */
+    #about {
+      padding-top: 80px;
+      min-height: calc(100vh - 80px); /* Full viewport minus navbar */
     }
 
-    /* Last section (contact) needs extra bottom padding */
-    #contact {
-      padding-bottom: 80px;
+    /* Add space between sections */
+    section + section {
+      border-top: 1px solid #eee;
+      margin-top: 0;
     }
 
-    /* Anchor target styling */
-    .section-anchor {
-      display: block;
-      visibility: hidden;
-      height: 0;
-      margin: 0;
-      padding: 0;
-      position: relative;
-      top: -80px; /* Pull anchor up to account for navbar */
-    }
-
+    /* Content styles */
     h2 {
       margin: 0 0 1em;
-      padding-top: 10px; /* Small padding for visual spacing */
+      font-size: 2em;
     }
 
     h3 {
       margin-top: 1.6em;
       margin-bottom: 0.8em;
+      font-size: 1.3em;
     }
 
     ul {
@@ -122,6 +117,7 @@
       text-decoration: underline;
     }
 
+    /* Hero section in About */
     .hero {
       display: flex;
       gap: 60px;
@@ -154,11 +150,13 @@
       line-height: 1.7;
     }
 
+    /* Contact section */
     .contact-icon {
       font-size: 3.5em;
       margin-bottom: 24px;
     }
 
+    /* Footer */
     footer {
       text-align: center;
       padding: 40px 0;
@@ -169,6 +167,7 @@
       background-color: #f9f9f9;
     }
 
+    /* Mobile responsive */
     @media (max-width: 900px) {
       .hero {
         flex-direction: column;
@@ -193,12 +192,27 @@
       }
       
       section {
-        min-height: 60vh;
+        padding: 100px 24px 40px;
+        min-height: 70vh;
       }
       
-      section:not(:last-of-type) {
-        margin-bottom: 30px;
-        padding-bottom: 50px;
+      #about {
+        min-height: calc(100vh - 100px);
+        padding-top: 100px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 100px 20px 30px;
+      }
+      
+      .hero-text h1 {
+        font-size: 2em;
+      }
+      
+      h2 {
+        font-size: 1.7em;
       }
     }
   </style>
@@ -222,7 +236,6 @@
 
 <!-- ================= ABOUT ================= -->
 <section id="about">
-  <span class="section-anchor" id="about-anchor"></span>
   <div class="hero">
     <img src="onur.jpg" alt="Photo of Onur Özkaynak">
     <div class="hero-text">
@@ -252,7 +265,6 @@
 
 <!-- ================= TEACHING ================= -->
 <section id="teaching">
-  <span class="section-anchor" id="teaching-anchor"></span>
   <h2>Teaching</h2>
   <p>
     My teaching focuses on language teacher education and multilingual writing. Across undergraduate, graduate, and adult
@@ -276,7 +288,6 @@
 
 <!-- ================= METHODS ================= -->
 <section id="methods">
-  <span class="section-anchor" id="methods-anchor"></span>
   <h2>Research & Methodological Expertise</h2>
   <p>
     My research adopts mixed-methods designs grounded in critical sociolinguistics. I integrate quantitative and qualitative
@@ -323,7 +334,6 @@
 
 <!-- ================= PUBLICATIONS ================= -->
 <section id="publications">
-  <span class="section-anchor" id="publications-anchor"></span>
   <h2>Publications</h2>
 
   <h3>Books</h3>
@@ -352,7 +362,6 @@
 
 <!-- ================= PRESENTATIONS ================= -->
 <section id="presentations">
-  <span class="section-anchor" id="presentations-anchor"></span>
   <h2>Presentations</h2>
 
   <h3>Conference Presentations</h3>
@@ -403,7 +412,6 @@
 </section>
 
 <section id="contact">
-  <span class="section-anchor" id="contact-anchor"></span>
   <h2>Contact</h2>
   <div class="contact-icon">✉️</div>
   <p>
@@ -414,53 +422,6 @@
 <footer>
   © 2025 Onur Özkaynak
 </footer>
-
-<script>
-  // Enhanced smooth scrolling with proper offset
-  document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      const targetId = this.getAttribute('href');
-      const targetAnchor = document.querySelector(targetId + '-anchor');
-      
-      if (targetAnchor) {
-        // Calculate the position to scroll to
-        const navHeight = document.querySelector('nav').offsetHeight;
-        const targetPosition = targetAnchor.offsetTop - navHeight + 10; // +10 for better positioning
-        
-        // Smooth scroll
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-        
-        // Update URL
-        history.pushState(null, null, targetId);
-      }
-    });
-  });
-  
-  // Handle page load with hash in URL
-  window.addEventListener('DOMContentLoaded', () => {
-    if (window.location.hash) {
-      setTimeout(() => {
-        const targetId = window.location.hash;
-        const targetAnchor = document.querySelector(targetId + '-anchor');
-        
-        if (targetAnchor) {
-          const navHeight = document.querySelector('nav').offsetHeight;
-          const targetPosition = targetAnchor.offsetTop - navHeight + 10;
-          
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'instant'
-          });
-        }
-      }, 100);
-    }
-  });
-</script>
 
 </body>
 </html>
