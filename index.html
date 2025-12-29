@@ -46,7 +46,6 @@
       display: flex;
       gap: 18px;
       flex-wrap: wrap;
-      justify-content: flex-end;
     }
 
     nav .menu a {
@@ -61,15 +60,20 @@
     }
 
     section {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 60px 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      position: relative;
     }
 
-    /* reliable anchor offset */
-    section h2 {
-    scroll-margin-top: 140px;
-    padding-top: 12px;
+    /* 🔑 FIX: anchor buffer for fixed nav */
+    section::before {
+      content: "";
+      display: block;
+      height: 140px;
+      margin-top: -140px;
+      visibility: hidden;
+      pointer-events: none;
     }
 
     #about {
@@ -153,10 +157,6 @@
         align-items: flex-start;
         gap: 12px;
       }
-
-      nav .menu {
-        justify-content: flex-start;
-      }
     }
   </style>
 </head>
@@ -177,6 +177,7 @@
   </div>
 </nav>
 
+<!-- ================= ABOUT ================= -->
 <section id="about">
   <div class="hero">
     <img src="onur.jpg" alt="Photo of Onur Özkaynak">
@@ -205,6 +206,7 @@
   </div>
 </section>
 
+<!-- ================= TEACHING ================= -->
 <section id="teaching">
   <h2>Teaching</h2>
   <p>
@@ -227,6 +229,7 @@
   </ul>
 </section>
 
+<!-- ================= METHODS ================= -->
 <section id="methods">
   <h2>Research & Methodological Expertise</h2>
   <p>
@@ -272,6 +275,7 @@
   </ul>
 </section>
 
+<!-- ================= PUBLICATIONS ================= -->
 <section id="publications">
   <h2>Publications</h2>
 
@@ -299,6 +303,7 @@
   </ul>
 </section>
 
+<!-- ================= PRESENTATIONS ================= -->
 <section id="presentations">
   <h2>Presentations</h2>
 
