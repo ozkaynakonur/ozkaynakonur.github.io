@@ -2,8 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Onur Özkaynak</title>
+  <title>Onur Özkaynak - PhD Candidate in Multilingual Language Education</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Onur Özkaynak - PhD Candidate in Multilingual Language Education at The Ohio State University. Research in language ideologies, accentism, and multilingual education.">
+  <meta name="keywords" content="multilingual education, TESOL, language ideologies, accentism, educational linguistics, Onur Özkaynak, Ohio State University, PhD candidate, language teacher education">
+  <meta name="author" content="Onur Özkaynak">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content="Onur Özkaynak - PhD Candidate in Multilingual Language Education">
+  <meta property="og:description" content="PhD Candidate in Multilingual Language Education at The Ohio State University. Research in language ideologies, accentism, and multilingual education.">
+  <meta property="og:type" content="website">
 
   <style>
     /* Reset and base styles */
@@ -29,6 +40,12 @@
       border-bottom: 1px solid #ddd;
       z-index: 1000;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    /* Add shadow on scroll */
+    nav.scrolled {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     .nav-inner {
@@ -59,12 +76,18 @@
       white-space: nowrap;
       padding: 4px 8px;
       border-radius: 4px;
-      transition: background-color 0.2s;
+      transition: all 0.2s ease;
     }
 
     nav .menu a:hover {
       text-decoration: underline;
       background-color: rgba(0,0,0,0.05);
+      transform: translateY(-1px);
+    }
+
+    nav .menu a:focus {
+      outline: 2px solid #2c5282;
+      outline-offset: 2px;
     }
 
     /* Sections with proper spacing */
@@ -73,6 +96,12 @@
       margin: 0 auto;
       padding: 100px 24px 60px; /* Top padding accounts for navbar */
       min-height: 80vh; /* Ensures sections are tall enough */
+      transition: background-color 0.3s ease;
+    }
+
+    /* Add subtle hover effect to sections */
+    section:hover {
+      background-color: rgba(0,0,0,0.01);
     }
 
     /* First section needs less top padding since it's at the top */
@@ -91,12 +120,30 @@
     h2 {
       margin: 0 0 1em;
       font-size: 2em;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #ddd;
+      transition: width 0.3s ease;
+    }
+
+    h2:hover::after {
+      width: 100px;
     }
 
     h3 {
       margin-top: 1.6em;
       margin-bottom: 0.8em;
       font-size: 1.3em;
+      color: #333;
     }
 
     ul {
@@ -105,16 +152,32 @@
     }
 
     li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 5px;
+      transition: all 0.2s ease;
+    }
+
+    li:hover {
+      background-color: rgba(0,0,0,0.03);
+      border-radius: 4px;
+      padding-left: 10px;
     }
 
     a.doi {
-      color: #0366d6;
+      color: #2c5282; /* Darker blue for better contrast */
       text-decoration: none;
+      transition: color 0.2s ease;
     }
 
     a.doi:hover {
       text-decoration: underline;
+      color: #1a365d;
+    }
+
+    a.doi:focus {
+      outline: 2px solid #2c5282;
+      outline-offset: 2px;
     }
 
     /* Hero section in About */
@@ -130,6 +193,11 @@
       height: 260px;
       border-radius: 50%;
       object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .hero img:hover {
+      transform: scale(1.02);
     }
 
     .hero-text h1 {
@@ -154,6 +222,11 @@
     .contact-icon {
       font-size: 3.5em;
       margin-bottom: 24px;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-icon:hover {
+      transform: scale(1.1);
     }
 
     /* Footer */
@@ -165,6 +238,39 @@
       border-top: 1px solid #ddd;
       margin-top: 60px;
       background-color: #f9f9f9;
+    }
+
+    /* Back to Top Button */
+    #backToTop {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      padding: 12px 16px;
+      background: #222;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1000;
+      font-size: 1.2em;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #backToTop:hover {
+      background: #2c5282;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+
+    #backToTop:active {
+      transform: translateY(-1px);
     }
 
     /* Mobile responsive */
@@ -200,6 +306,13 @@
         min-height: calc(100vh - 100px);
         padding-top: 100px;
       }
+      
+      #backToTop {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+      }
     }
 
     @media (max-width: 600px) {
@@ -213,6 +326,43 @@
       
       h2 {
         font-size: 1.7em;
+      }
+      
+      #backToTop {
+        bottom: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 1em;
+      }
+    }
+
+    /* Print styles */
+    @media print {
+      nav {
+        display: none;
+      }
+      
+      #backToTop {
+        display: none !important;
+      }
+      
+      section {
+        padding: 20px 0;
+        border: none !important;
+        min-height: auto;
+        page-break-inside: avoid;
+      }
+      
+      a.doi::after {
+        content: " (" attr(href) ")";
+        font-size: 0.9em;
+        color: #666;
+      }
+      
+      .hero img {
+        width: 150px;
+        height: 150px;
       }
     }
   </style>
@@ -343,20 +493,20 @@
 
   <h3>Peer-Reviewed Journal Articles</h3>
   <ul>
-    <li>Özkaynak, O. (2025). State monolingualism and its emotional impacts on multilingual identity construction. <em>International Journal of Multilingualism</em>. <a class="doi" href="https://doi.org/10.1080/14790718.2025.2485178" target="_blank">https://doi.org/10.1080/14790718.2025.2485178</a></li>
-    <li>Özkaynak, O., & Peker, H. (2025). Translanguaging practices and L2 motivational self system. <em>Translation and Translanguaging in Multilingual Contexts</em>. <a class="doi" href="https://doi.org/10.1075/ttmc.00177.ozk" target="_blank">https://doi.org/10.1075/ttmc.00177.ozk</a></li>
-    <li>Şanal, M., & Özkaynak, O. (2023). Raising multilingual learners' awareness of social justice. <em>Focus on ELT Journal</em>, 5(2), 1–20. <a class="doi" href="https://doi.org/10.14744/felt.2023.5.2.1" target="_blank">https://doi.org/10.14744/felt.2023.5.2.1</a></li>
-    <li>Özkaynak, O. (2023). Family language policies of Turkish parents in the United States. <em>Journal of Multilingual and Multicultural Development</em>, 46(7), 2031–2047. <a class="doi" href="https://doi.org/10.1080/01434632.2023.2277228" target="_blank">https://doi.org/10.1080/01434632.2023.2277228</a></li>
-    <li>Özkaynak, O. (2023). Translanguaging in applied linguistics: A comprehensive systematic review. <em>L2 Journal</em>, 15(1). <a class="doi" href="https://doi.org/10.5070/L2.2460" target="_blank">https://doi.org/10.5070/L2.2460</a></li>
-    <li>Peker, H., & Özkaynak, O. (2020). A critical review on the equivocal definition of comprehensible input. <em>Journal of Language Education and Research</em>, 6(11), 238–250. <a class="doi" href="https://doi.org/10.31464/jlere.617587" target="_blank">https://doi.org/10.31464/jlere.617587</a></li>
+    <li>Özkaynak, O. (2025). State monolingualism and its emotional impacts on multilingual identity construction. <em>International Journal of Multilingualism</em>. <a class="doi" href="https://doi.org/10.1080/14790718.2025.2485178" target="_blank" rel="noopener">https://doi.org/10.1080/14790718.2025.2485178</a></li>
+    <li>Özkaynak, O., & Peker, H. (2025). Translanguaging practices and L2 motivational self system. <em>Translation and Translanguaging in Multilingual Contexts</em>. <a class="doi" href="https://doi.org/10.1075/ttmc.00177.ozk" target="_blank" rel="noopener">https://doi.org/10.1075/ttmc.00177.ozk</a></li>
+    <li>Şanal, M., & Özkaynak, O. (2023). Raising multilingual learners' awareness of social justice. <em>Focus on ELT Journal</em>, 5(2), 1–20. <a class="doi" href="https://doi.org/10.14744/felt.2023.5.2.1" target="_blank" rel="noopener">https://doi.org/10.14744/felt.2023.5.2.1</a></li>
+    <li>Özkaynak, O. (2023). Family language policies of Turkish parents in the United States. <em>Journal of Multilingual and Multicultural Development</em>, 46(7), 2031–2047. <a class="doi" href="https://doi.org/10.1080/01434632.2023.2277228" target="_blank" rel="noopener">https://doi.org/10.1080/01434632.2023.2277228</a></li>
+    <li>Özkaynak, O. (2023). Translanguaging in applied linguistics: A comprehensive systematic review. <em>L2 Journal</em>, 15(1). <a class="doi" href="https://doi.org/10.5070/L2.2460" target="_blank" rel="noopener">https://doi.org/10.5070/L2.2460</a></li>
+    <li>Peker, H., & Özkaynak, O. (2020). A critical review on the equivocal definition of comprehensible input. <em>Journal of Language Education and Research</em>, 6(11), 238–250. <a class="doi" href="https://doi.org/10.31464/jlere.617587" target="_blank" rel="noopener">https://doi.org/10.31464/jlere.617587</a></li>
     <li>Peker, H., Özkaynak, O., Arslan, Z., & Tunç, H. (2019). A case study on the perceptions of professional development unit members at an EFL program. <em>International Journal of Curriculum and Instruction</em>, 11(2), 238–254.</li>
   </ul>
 
   <h3>Book Reviews</h3>
   <ul>
-    <li>Özkaynak, O. (2024). Review of Deumert & Makoni. <em>Critical Inquiry in Language Studies</em>. <a class="doi" href="https://doi.org/10.1080/15427587.2024.2420084" target="_blank">https://doi.org/10.1080/15427587.2024.2420084</a></li>
-    <li>Özkaynak, O. (2023). Review of MacSwan (Ed.). <em>TESOL Journal</em>, 15(1). <a class="doi" href="https://doi.org/10.1002/tesj.724" target="_blank">https://doi.org/10.1002/tesj.724</a></li>
-    <li>Özkaynak, O. (2023). Review of Dovchin. <em>International Journal of Multilingualism</em>, 21(3), 1734–1737. <a class="doi" href="https://doi.org/10.1080/14790718.2022.2164771" target="_blank">https://doi.org/10.1080/14790718.2022.2164771</a></li>
+    <li>Özkaynak, O. (2024). Review of Deumert & Makoni. <em>Critical Inquiry in Language Studies</em>. <a class="doi" href="https://doi.org/10.1080/15427587.2024.2420084" target="_blank" rel="noopener">https://doi.org/10.1080/15427587.2024.2420084</a></li>
+    <li>Özkaynak, O. (2023). Review of MacSwan (Ed.). <em>TESOL Journal</em>, 15(1). <a class="doi" href="https://doi.org/10.1002/tesj.724" target="_blank" rel="noopener">https://doi.org/10.1002/tesj.724</a></li>
+    <li>Özkaynak, O. (2023). Review of Dovchin. <em>International Journal of Multilingualism</em>, 21(3), 1734–1737. <a class="doi" href="https://doi.org/10.1080/14790718.2022.2164771" target="_blank" rel="noopener">https://doi.org/10.1080/14790718.2022.2164771</a></li>
   </ul>
 </section>
 
@@ -422,6 +572,50 @@
 <footer>
   © 2025 Onur Özkaynak
 </footer>
+
+<!-- Back to Top Button -->
+<button id="backToTop" title="Back to top">↑</button>
+
+<script>
+  // Back to Top Button functionality
+  const backToTopButton = document.getElementById('backToTop');
+  
+  // Show/hide button based on scroll position
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+      backToTopButton.style.display = 'flex';
+    } else {
+      backToTopButton.style.display = 'none';
+    }
+    
+    // Add shadow to navbar on scroll
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 10) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+  
+  // Smooth scroll to top when clicked
+  backToTopButton.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+  
+  // Add focus styles for keyboard navigation
+  document.addEventListener('keyup', (e) => {
+    if (e.key === 'Tab') {
+      const focused = document.activeElement;
+      if (focused.classList.contains('doi') || focused.tagName === 'A') {
+        focused.style.outline = '2px solid #2c5282';
+        focused.style.outlineOffset = '2px';
+      }
+    }
+  });
+</script>
 
 </body>
 </html>
