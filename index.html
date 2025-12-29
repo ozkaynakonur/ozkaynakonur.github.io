@@ -6,73 +6,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
+      margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      max-width: 1000px;
-      margin: 70px auto;
-      padding: 0 24px;
-      line-height: 1.65;
-      color: #222;
       background-color: #f7f7f5;
+      color: #222;
+      line-height: 1.65;
     }
 
-    h1 {
-      margin-bottom: 0.2em;
-    }
-
-    .subtitle {
-      color: #555;
-      margin-bottom: 2em;
-    }
-
-    .layout {
-      display: flex;
-      gap: 50px;
-      align-items: flex-start;
-    }
-
-    .sidebar {
-      width: 220px;
-      flex-shrink: 0;
-      background-color: #eeeeea;
-      padding: 20px;
-      border-radius: 6px;
-    }
-
-    .sidebar img {
+    /* ---------- NAVBAR ---------- */
+    nav {
+      position: fixed;
+      top: 0;
       width: 100%;
-      border-radius: 6px;
-      margin-bottom: 20px;
+      background-color: #f7f7f5;
+      border-bottom: 1px solid #ddd;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
     }
 
-    .sidebar a {
-      display: block;
-      margin-bottom: 8px;
-      color: #0366d6;
+    nav .name {
+      font-weight: 600;
+      font-size: 1.1em;
+    }
+
+    nav .menu a {
+      margin-left: 24px;
       text-decoration: none;
+      color: #222;
+      font-size: 0.95em;
     }
 
-    .sidebar a:hover {
+    nav .menu a:hover {
       text-decoration: underline;
     }
 
-    .content {
-      flex: 1;
+    /* ---------- SECTIONS ---------- */
+    section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 120px 24px 80px;
     }
 
+    h2 {
+      margin-bottom: 1em;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      min-height: 80vh;
+    }
+
+    .hero img {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .hero-text h1 {
+      margin: 0;
+      font-size: 2.4em;
+    }
+
+    .hero-text p {
+      margin-top: 1em;
+      max-width: 520px;
+    }
+
+    /* ---------- FOOTER ---------- */
     footer {
-      margin-top: 60px;
+      text-align: center;
+      padding: 40px 0;
       font-size: 0.9em;
       color: #666;
     }
 
     @media (max-width: 800px) {
-      .layout {
+      .hero {
         flex-direction: column;
-      }
-
-      .sidebar {
-        width: 100%;
+        text-align: center;
       }
     }
   </style>
@@ -80,44 +103,67 @@
 
 <body>
 
-  <h1>Onur Özkaynak</h1>
-  <p class="subtitle">
-    Doctoral Candidate in Applied Linguistics (Multilingual Language Education)<br>
-    The Ohio State University
-    ozkaynak.2@osu.edu
-  </p>
+<!-- ================= NAVIGATION ================= -->
+<nav>
+  <div class="name">Onur Özkaynak</div>
+  <div class="menu">
+    <a href="#about">About</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#methods">Research & Methods</a>
+    <a href="#publications">Publications</a>
+    <a href="#presentations">Presentations</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
-  <div class="layout">
+<!-- ================= HERO / ABOUT ================= -->
+<section id="about">
+  <div class="hero">
+    <img src="onur.jpg" alt="Photo of Onur Özkaynak">
+    <div class="hero-text">
+      <h1>Onur Özkaynak</h1>
 
-    <!-- LEFT COLUMN -->
-    <div class="sidebar">
-      <img src="onur.jpg" alt="Photo of Onur Özkaynak">
-
-     <a href="publications.html">Publications</a>
-     <a href="presentations.html">Presentations</a>
-     <a href="https://scholar.google.com/citations?user=W3Mw81kAAAAJ&hl=en&authuser=1&oi=ao" target="_blank">Google Scholar</a>
-     <a href="https://www.linkedin.com/in/onur-%C3%B6zkaynak-05445b29" target="_blank">LinkedIn</a>
-
-    </div>
-
-    <!-- RIGHT COLUMN -->
-    <div class="content">
+      <!-- ABOUT TEXT GOES HERE -->
       <p>
-        I am a doctoral candidate in Applied Linguistics (Multilingual Language Education) and a Graduate Teaching Associate
-        at the Intercultural English Language Programs (IELP) at The Ohio State University. I hold an MA in Teaching English
-        as a Foreign Language (TEFL) from Bilkent University and a BA in English Language Teaching (ELT) from Gazi University.
-        My research examines how language ideologies, particularly accentism and native-speakerism, shape judgments of
-        legitimacy and competence in English language education. Drawing on raciolinguistics, educational sociolinguistics,
-        and critical discourse analysis, my work focuses on teacher education contexts in Türkiye and the United States. 
-        For more details and to request the most recent version of my CV, contact me on my email: ozkaynak.2@osu.edu
+        <!-- We will paste your approved paragraph here -->
       </p>
     </div>
-
   </div>
+</section>
 
-  <footer>
-    © 2025 Onur Özkaynak
-  </footer>
+<!-- ================= TEACHING ================= -->
+<section id="teaching">
+  <h2>Teaching</h2>
+  <!-- Teaching content goes here -->
+</section>
+
+<!-- ================= RESEARCH & METHODS ================= -->
+<section id="methods">
+  <h2>Research & Methodological Expertise</h2>
+  <!-- Research / methods content goes here -->
+</section>
+
+<!-- ================= PUBLICATIONS ================= -->
+<section id="publications">
+  <h2>Publications</h2>
+  <!-- Publications content goes here -->
+</section>
+
+<!-- ================= PRESENTATIONS ================= -->
+<section id="presentations">
+  <h2>Presentations</h2>
+  <!-- Presentations content goes here -->
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <h2>Contact</h2>
+  <!-- Contact info goes here -->
+</section>
+
+<footer>
+  © 2025 Onur Özkaynak
+</footer>
 
 </body>
 </html>
