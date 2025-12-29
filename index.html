@@ -25,27 +25,36 @@
       width: 100%;
       background-color: #f7f7f5;
       border-bottom: 1px solid #ddd;
-      padding: 16px 24px; /* FIXED */
+      z-index: 1000;
+    }
+
+    .nav-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 16px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 1000;
     }
 
     nav .name {
       font-weight: 600;
       font-size: 1.1em;
-    }
-
-    nav .menu {
       white-space: nowrap;
     }
 
+    nav .menu {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
     nav .menu a {
-      margin-left: 18px;
       text-decoration: none;
       color: #222;
       font-size: 0.95em;
+      white-space: nowrap;
     }
 
     nav .menu a:hover {
@@ -101,10 +110,21 @@
       color: #666;
     }
 
-    @media (max-width: 800px) {
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px) {
       .hero {
         flex-direction: column;
         text-align: center;
+      }
+
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      nav .menu {
+        justify-content: flex-start;
       }
     }
   </style>
@@ -114,14 +134,16 @@
 
 <!-- ================= NAVIGATION ================= -->
 <nav>
-  <div class="name">Onur Özkaynak</div>
-  <div class="menu">
-    <a href="#about">About</a>
-    <a href="#teaching">Teaching</a>
-    <a href="#methods">Research & Methods</a>
-    <a href="#publications">Publications</a>
-    <a href="#presentations">Presentations</a>
-    <a href="#contact">Contact</a>
+  <div class="nav-inner">
+    <div class="name">Onur Özkaynak</div>
+    <div class="menu">
+      <a href="#about">About</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#methods">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#presentations">Presentations</a>
+      <a href="#contact">Contact</a>
+    </div>
   </div>
 </nav>
 
@@ -151,10 +173,10 @@
   <!-- Teaching content goes here -->
 </section>
 
-<!-- ================= RESEARCH & METHODS ================= -->
+<!-- ================= RESEARCH ================= -->
 <section id="methods">
-  <h2>Research & Methodological Expertise</h2>
-  <!-- Research / methods content goes here -->
+  <h2>Research</h2>
+  <!-- Research & methodological expertise goes here -->
 </section>
 
 <!-- ================= PUBLICATIONS ================= -->
