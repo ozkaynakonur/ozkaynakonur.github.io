@@ -16,7 +16,6 @@
       background-color: #f7f7f5;
       color: #222;
       line-height: 1.65;
-      padding-top: 60px; /* Add padding to body to account for fixed nav */
     }
 
     nav {
@@ -26,7 +25,7 @@
       background-color: #f7f7f5;
       border-bottom: 1px solid #ddd;
       z-index: 1000;
-      height: 60px; /* Set explicit height */
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     .nav-inner {
@@ -36,7 +35,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 100%;
     }
 
     nav .name {
@@ -56,41 +54,59 @@
       color: #222;
       font-size: 0.95em;
       white-space: nowrap;
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: background-color 0.2s;
     }
 
     nav .menu a:hover {
       text-decoration: underline;
+      background-color: rgba(0,0,0,0.05);
     }
 
     section {
       max-width: 1000px;
       margin: 0 auto;
-      padding: 60px 24px;
-      position: relative;
+      padding: 40px 24px;
+      min-height: 70vh; /* Ensure sections are tall enough */
     }
 
-    /* FIXED: Simple and reliable anchor offset */
-    section[id] {
-      padding-top: 20px; /* Add some padding to the top */
-      margin-top: -60px; /* Pull the section up */
+    /* Add space BELOW each section except the last one */
+    section:not(:last-of-type) {
+      margin-bottom: 40px; /* Add space between sections */
+      padding-bottom: 60px; /* Extra padding at bottom */
+      border-bottom: 1px solid #eee; /* Optional subtle separator */
     }
-    
-    /* Special case for #about since it has hero content */
-    #about {
-      padding-top: 100px;
-      margin-top: 0; /* Reset for about section */
+
+    /* Last section (contact) needs extra bottom padding */
+    #contact {
+      padding-bottom: 80px;
+    }
+
+    /* Anchor target styling */
+    .section-anchor {
+      display: block;
+      visibility: hidden;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      top: -80px; /* Pull anchor up to account for navbar */
     }
 
     h2 {
-      margin: 0 0 0.8em;
+      margin: 0 0 1em;
+      padding-top: 10px; /* Small padding for visual spacing */
     }
 
     h3 {
       margin-top: 1.6em;
+      margin-bottom: 0.8em;
     }
 
     ul {
       padding-left: 20px;
+      margin-bottom: 1.5em;
     }
 
     li {
@@ -126,18 +142,21 @@
     }
 
     .hero-text .title {
-      margin: 6px 0 1em;
+      margin: 6px 0 1.5em;
       color: #555;
+      font-size: 1.1em;
+      line-height: 1.5;
     }
 
     .hero-text p {
-      margin: 0 0 1em;
+      margin: 0 0 1.5em;
       max-width: 520px;
+      line-height: 1.7;
     }
 
     .contact-icon {
       font-size: 3.5em;
-      margin-bottom: 16px;
+      margin-bottom: 24px;
     }
 
     footer {
@@ -145,32 +164,41 @@
       padding: 40px 0;
       font-size: 0.9em;
       color: #666;
+      border-top: 1px solid #ddd;
+      margin-top: 60px;
+      background-color: #f9f9f9;
     }
 
     @media (max-width: 900px) {
       .hero {
         flex-direction: column;
         text-align: center;
+        gap: 40px;
       }
 
       .nav-inner {
         flex-direction: column;
         align-items: flex-start;
         gap: 12px;
-        padding: 8px 24px;
+        padding: 16px 24px;
       }
       
-      nav {
-        height: auto; /* Auto height for mobile */
-        min-height: 80px;
+      nav .menu {
+        gap: 12px;
       }
       
-      body {
-        padding-top: 80px; /* Adjust body padding for mobile */
+      .hero img {
+        width: 200px;
+        height: 200px;
       }
       
-      section[id] {
-        margin-top: -80px; /* Adjust for mobile nav height */
+      section {
+        min-height: 60vh;
+      }
+      
+      section:not(:last-of-type) {
+        margin-bottom: 30px;
+        padding-bottom: 50px;
       }
     }
   </style>
@@ -194,6 +222,7 @@
 
 <!-- ================= ABOUT ================= -->
 <section id="about">
+  <span class="section-anchor" id="about-anchor"></span>
   <div class="hero">
     <img src="onur.jpg" alt="Photo of Onur Özkaynak">
     <div class="hero-text">
@@ -223,6 +252,7 @@
 
 <!-- ================= TEACHING ================= -->
 <section id="teaching">
+  <span class="section-anchor" id="teaching-anchor"></span>
   <h2>Teaching</h2>
   <p>
     My teaching focuses on language teacher education and multilingual writing. Across undergraduate, graduate, and adult
@@ -246,6 +276,7 @@
 
 <!-- ================= METHODS ================= -->
 <section id="methods">
+  <span class="section-anchor" id="methods-anchor"></span>
   <h2>Research & Methodological Expertise</h2>
   <p>
     My research adopts mixed-methods designs grounded in critical sociolinguistics. I integrate quantitative and qualitative
@@ -292,6 +323,7 @@
 
 <!-- ================= PUBLICATIONS ================= -->
 <section id="publications">
+  <span class="section-anchor" id="publications-anchor"></span>
   <h2>Publications</h2>
 
   <h3>Books</h3>
@@ -320,6 +352,7 @@
 
 <!-- ================= PRESENTATIONS ================= -->
 <section id="presentations">
+  <span class="section-anchor" id="presentations-anchor"></span>
   <h2>Presentations</h2>
 
   <h3>Conference Presentations</h3>
@@ -370,6 +403,7 @@
 </section>
 
 <section id="contact">
+  <span class="section-anchor" id="contact-anchor"></span>
   <h2>Contact</h2>
   <div class="contact-icon">✉️</div>
   <p>
@@ -380,6 +414,53 @@
 <footer>
   © 2025 Onur Özkaynak
 </footer>
+
+<script>
+  // Enhanced smooth scrolling with proper offset
+  document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      const targetAnchor = document.querySelector(targetId + '-anchor');
+      
+      if (targetAnchor) {
+        // Calculate the position to scroll to
+        const navHeight = document.querySelector('nav').offsetHeight;
+        const targetPosition = targetAnchor.offsetTop - navHeight + 10; // +10 for better positioning
+        
+        // Smooth scroll
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+        
+        // Update URL
+        history.pushState(null, null, targetId);
+      }
+    });
+  });
+  
+  // Handle page load with hash in URL
+  window.addEventListener('DOMContentLoaded', () => {
+    if (window.location.hash) {
+      setTimeout(() => {
+        const targetId = window.location.hash;
+        const targetAnchor = document.querySelector(targetId + '-anchor');
+        
+        if (targetAnchor) {
+          const navHeight = document.querySelector('nav').offsetHeight;
+          const targetPosition = targetAnchor.offsetTop - navHeight + 10;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'instant'
+          });
+        }
+      }, 100);
+    }
+  });
+</script>
 
 </body>
 </html>
