@@ -8,7 +8,6 @@
   <style>
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 100px; /* Added this line for modern browsers */
     }
 
     body {
@@ -17,6 +16,7 @@
       background-color: #f7f7f5;
       color: #222;
       line-height: 1.65;
+      padding-top: 60px; /* Add padding to body to account for fixed nav */
     }
 
     nav {
@@ -26,6 +26,7 @@
       background-color: #f7f7f5;
       border-bottom: 1px solid #ddd;
       z-index: 1000;
+      height: 60px; /* Set explicit height */
     }
 
     .nav-inner {
@@ -35,6 +36,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      height: 100%;
     }
 
     nav .name {
@@ -65,27 +67,18 @@
       margin: 0 auto;
       padding: 60px 24px;
       position: relative;
-      scroll-margin-top: 100px; /* Added this for modern browsers */
     }
 
-    /* 🔑 FIXED: Improved anchor buffer for fixed nav */
-    section::before {
-      content: "";
-      display: block;
-      height: 100px; /* Adjusted to match scroll-margin-top */
-      margin-top: -100px; /* Negative of the height */
-      visibility: hidden;
-      pointer-events: none;
+    /* FIXED: Simple and reliable anchor offset */
+    section[id] {
+      padding-top: 20px; /* Add some padding to the top */
+      margin-top: -60px; /* Pull the section up */
     }
-
+    
+    /* Special case for #about since it has hero content */
     #about {
       padding-top: 100px;
-      scroll-margin-top: 140px; /* Larger value for about section */
-    }
-
-    #about::before {
-      height: 140px;
-      margin-top: -140px;
+      margin-top: 0; /* Reset for about section */
     }
 
     h2 {
@@ -164,25 +157,20 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 12px;
+        padding: 8px 24px;
       }
       
-      /* Adjust scroll offset for mobile if navbar is taller */
-      section {
-        scroll-margin-top: 120px;
+      nav {
+        height: auto; /* Auto height for mobile */
+        min-height: 80px;
       }
       
-      section::before {
-        height: 120px;
-        margin-top: -120px;
+      body {
+        padding-top: 80px; /* Adjust body padding for mobile */
       }
       
-      #about {
-        scroll-margin-top: 160px;
-      }
-      
-      #about::before {
-        height: 160px;
-        margin-top: -160px;
+      section[id] {
+        margin-top: -80px; /* Adjust for mobile nav height */
       }
     }
   </style>
