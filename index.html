@@ -20,7 +20,7 @@
     /* Reset and base styles */
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 80px; /* This is the key fix */
+      scroll-padding-top: 60px; /* Reduced for mobile */
     }
 
     body {
@@ -31,7 +31,7 @@
       line-height: 1.65;
     }
 
-    /* Fixed navbar */
+    /* Fixed navbar - COMPACT ON MOBILE */
     nav {
       position: fixed;
       top: 0;
@@ -40,7 +40,7 @@
       border-bottom: 1px solid #ddd;
       z-index: 1000;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      transition: box-shadow 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     /* Add shadow on scroll */
@@ -51,7 +51,7 @@
     .nav-inner {
       max-width: 1000px;
       margin: 0 auto;
-      padding: 12px 24px;
+      padding: 8px 24px; /* Reduced padding */
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -59,23 +59,23 @@
 
     nav .name {
       font-weight: 600;
-      font-size: 1.1em;
+      font-size: 1em; /* Smaller font */
       white-space: nowrap;
     }
 
     nav .menu {
       display: flex;
-      gap: 18px;
+      gap: 10px; /* Smaller gap */
       flex-wrap: wrap;
     }
 
     nav .menu a {
       text-decoration: none;
       color: #222;
-      font-size: 0.95em;
+      font-size: 0.85em; /* Smaller font */
       white-space: nowrap;
-      padding: 4px 8px;
-      border-radius: 4px;
+      padding: 3px 6px; /* Smaller padding */
+      border-radius: 3px;
       transition: all 0.2s ease;
     }
 
@@ -94,8 +94,8 @@
     section {
       max-width: 1000px;
       margin: 0 auto;
-      padding: 100px 24px 60px; /* Top padding accounts for navbar */
-      min-height: 80vh; /* Ensures sections are tall enough */
+      padding: 80px 24px 60px; /* Reduced top padding */
+      min-height: 80vh;
       transition: background-color 0.3s ease;
     }
 
@@ -104,10 +104,10 @@
       background-color: rgba(0,0,0,0.01);
     }
 
-    /* First section needs less top padding since it's at the top */
+    /* First section needs special treatment */
     #about {
-      padding-top: 80px;
-      min-height: calc(100vh - 80px); /* Full viewport minus navbar */
+      padding-top: 60px; /* Much less padding for about section */
+      min-height: calc(100vh - 60px);
     }
 
     /* Add space between sections */
@@ -165,7 +165,7 @@
     }
 
     a.doi {
-      color: #2c5282; /* Darker blue for better contrast */
+      color: #2c5282;
       text-decoration: none;
       transition: color 0.2s ease;
     }
@@ -180,7 +180,7 @@
       outline-offset: 2px;
     }
 
-    /* Hero section in About */
+    /* Hero section in About - FIXED FOR MOBILE */
     .hero {
       display: flex;
       gap: 60px;
@@ -333,150 +333,106 @@
       transform: translateY(-1px);
     }
 
-    /* Mobile responsive - FIXED FOR PHOTO VISIBILITY */
-    @media (max-width: 900px) {
-      /* Fix navbar height on mobile */
-      nav {
-        height: auto;
-        min-height: 60px;
-      }
-      
-      .nav-inner {
-        flex-direction: row; /* Keep horizontal on mobile for better space */
-        align-items: center;
-        gap: 10px;
-        padding: 10px 20px;
-        min-height: 60px;
-      }
-      
-      nav .menu {
-        gap: 8px;
-        justify-content: flex-end;
-      }
-      
-      nav .menu a {
-        font-size: 0.85em;
-        padding: 3px 6px;
-      }
-      
-      nav .name {
-        font-size: 1em;
-      }
-      
-      /* Adjust hero section for mobile */
-      .hero {
-        flex-direction: column;
-        text-align: center;
-        gap: 40px;
-        padding-top: 20px; /* Add some space at the top */
-      }
-      
-      .hero img {
-        width: 180px;
-        height: 180px;
-        margin-top: 20px; /* Ensure photo is visible below navbar */
-      }
-      
-      /* Adjust section padding for mobile */
+    /* MOBILE RESPONSIVE - FIXED FOR PHOTO VISIBILITY */
+    /* For tablets and smaller laptops */
+    @media (max-width: 1024px) {
       section {
-        padding: 80px 20px 40px; /* Reduced top padding for mobile */
-        min-height: auto; /* Remove fixed min-height on mobile */
+        padding: 70px 20px 50px;
       }
       
       #about {
-        padding-top: 60px; /* Less padding on mobile */
-        min-height: auto; /* Remove calc for mobile */
+        padding-top: 50px;
+        min-height: calc(100vh - 50px);
+      }
+      
+      .hero {
+        gap: 40px;
+      }
+      
+      .hero img {
+        width: 220px;
+        height: 220px;
+      }
+    }
+
+    /* For mobile devices */
+    @media (max-width: 768px) {
+      /* Make navbar even more compact */
+      nav {
+        min-height: 50px;
+      }
+      
+      .nav-inner {
+        padding: 6px 15px;
+        min-height: 50px;
+      }
+      
+      nav .name {
+        font-size: 0.9em;
+      }
+      
+      nav .menu {
+        gap: 6px;
+      }
+      
+      nav .menu a {
+        font-size: 0.8em;
+        padding: 2px 4px;
+      }
+      
+      /* Adjust scroll padding for mobile */
+      html {
+        scroll-padding-top: 50px;
+      }
+      
+      /* About section adjustments */
+      #about {
+        padding-top: 50px;
+        min-height: auto;
         padding-bottom: 40px;
       }
       
+      section {
+        padding: 60px 15px 40px;
+      }
+      
+      /* Hero layout for mobile */
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        padding-top: 10px; /* Small extra padding at top */
+      }
+      
+      .hero img {
+        width: 160px;
+        height: 160px;
+        margin-top: 10px; /* Ensure photo starts below navbar */
+      }
+      
       .hero-text h1 {
-        font-size: 2em;
-        margin-top: 10px;
+        font-size: 1.8em;
+        margin-top: 0;
       }
       
       .hero-text .title {
-        font-size: 1em;
-        margin: 10px 0 1.5em;
+        font-size: 0.95em;
+        margin: 8px 0 1.2em;
       }
       
       .hero-text p {
-        font-size: 0.95em;
+        font-size: 0.9em;
         line-height: 1.6;
       }
       
-      /* Adjust contact icons for mobile */
+      /* Contact icons for mobile */
       .contact-icons {
         gap: 15px;
         margin-top: 30px;
       }
       
       .contact-icon {
-        width: 65px;
-      }
-      
-      .icon-container {
-        width: 50px;
-        height: 50px;
-      }
-      
-      .contact-icon svg {
-        width: 24px;
-        height: 24px;
-      }
-      
-      .icon-label {
-        font-size: 0.75em;
-      }
-      
-      #backToTop {
-        bottom: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
-        font-size: 1.1em;
-      }
-    }
-
-    @media (max-width: 600px) {
-      /* For very small screens */
-      .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-        padding: 12px 15px;
-        min-height: 70px;
-      }
-      
-      nav .menu {
-        width: 100%;
-        justify-content: flex-start;
-        gap: 6px;
-      }
-      
-      .hero img {
-        width: 150px;
-        height: 150px;
-        margin-top: 10px;
-      }
-      
-      .hero-text h1 {
-        font-size: 1.8em;
-      }
-      
-      section {
-        padding: 70px 15px 30px;
-      }
-      
-      #about {
-        padding-top: 70px; /* Slightly more for stacked navbar */
-      }
-      
-      .contact-icons {
-        gap: 10px;
-      }
-      
-      .contact-icon {
-        width: 55px;
+        width: 60px;
       }
       
       .icon-container {
@@ -485,8 +441,8 @@
       }
       
       .contact-icon svg {
-        width: 20px;
-        height: 20px;
+        width: 22px;
+        height: 22px;
       }
       
       .icon-label {
@@ -502,33 +458,121 @@
       }
     }
 
-    @media (max-width: 400px) {
-      /* For extra small screens */
+    /* For very small mobile devices */
+    @media (max-width: 480px) {
+      /* Even more compact navbar */
+      nav {
+        min-height: 45px;
+      }
+      
+      .nav-inner {
+        padding: 5px 10px;
+        min-height: 45px;
+      }
+      
+      nav .name {
+        font-size: 0.85em;
+      }
+      
+      nav .menu {
+        gap: 4px;
+      }
+      
+      nav .menu a {
+        font-size: 0.75em;
+        padding: 2px 3px;
+      }
+      
+      /* Adjust scroll padding */
+      html {
+        scroll-padding-top: 45px;
+      }
+      
+      /* About section - minimal padding */
+      #about {
+        padding-top: 45px;
+        padding-bottom: 30px;
+      }
+      
+      section {
+        padding: 50px 12px 30px;
+      }
+      
+      /* Hero adjustments */
+      .hero {
+        gap: 25px;
+      }
+      
       .hero img {
-        width: 130px;
-        height: 130px;
+        width: 140px;
+        height: 140px;
+        margin-top: 5px;
       }
       
       .hero-text h1 {
         font-size: 1.6em;
       }
       
-      nav .menu a {
-        font-size: 0.8em;
-        padding: 2px 4px;
+      .hero-text .title {
+        font-size: 0.9em;
       }
       
+      .hero-text p {
+        font-size: 0.85em;
+      }
+      
+      /* Contact icons */
       .contact-icons {
-        gap: 8px;
+        gap: 10px;
       }
       
       .contact-icon {
-        width: 50px;
+        width: 55px;
       }
       
       .icon-container {
         width: 40px;
         height: 40px;
+      }
+      
+      .contact-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+      
+      .icon-label {
+        font-size: 0.65em;
+      }
+    }
+
+    /* For extremely small screens */
+    @media (max-width: 360px) {
+      /* Stack navbar items vertically if needed */
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        padding: 8px 10px;
+      }
+      
+      nav .menu {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 3px;
+      }
+      
+      /* Adjust scroll padding */
+      html {
+        scroll-padding-top: 70px; /* More for stacked navbar */
+      }
+      
+      #about {
+        padding-top: 70px;
+      }
+      
+      .hero img {
+        width: 130px;
+        height: 130px;
       }
     }
 
@@ -612,6 +656,7 @@
   </div>
 </section>
 
+<!-- The rest of your HTML remains exactly the same -->
 <!-- ================= TEACHING ================= -->
 <section id="teaching">
   <h2>Teaching</h2>
