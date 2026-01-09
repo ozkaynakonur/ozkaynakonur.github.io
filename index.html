@@ -333,53 +333,85 @@
       transform: translateY(-1px);
     }
 
-    /* Mobile responsive */
+    /* Mobile responsive - FIXED FOR PHOTO VISIBILITY */
     @media (max-width: 900px) {
+      /* Fix navbar height on mobile */
+      nav {
+        height: auto;
+        min-height: 60px;
+      }
+      
+      .nav-inner {
+        flex-direction: row; /* Keep horizontal on mobile for better space */
+        align-items: center;
+        gap: 10px;
+        padding: 10px 20px;
+        min-height: 60px;
+      }
+      
+      nav .menu {
+        gap: 8px;
+        justify-content: flex-end;
+      }
+      
+      nav .menu a {
+        font-size: 0.85em;
+        padding: 3px 6px;
+      }
+      
+      nav .name {
+        font-size: 1em;
+      }
+      
+      /* Adjust hero section for mobile */
       .hero {
         flex-direction: column;
         text-align: center;
         gap: 40px;
-      }
-
-      .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        padding: 16px 24px;
-      }
-      
-      nav .menu {
-        gap: 12px;
+        padding-top: 20px; /* Add some space at the top */
       }
       
       .hero img {
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
+        margin-top: 20px; /* Ensure photo is visible below navbar */
       }
       
+      /* Adjust section padding for mobile */
       section {
-        padding: 100px 24px 40px;
-        min-height: 70vh;
+        padding: 80px 20px 40px; /* Reduced top padding for mobile */
+        min-height: auto; /* Remove fixed min-height on mobile */
       }
       
       #about {
-        min-height: calc(100vh - 100px);
-        padding-top: 100px;
+        padding-top: 60px; /* Less padding on mobile */
+        min-height: auto; /* Remove calc for mobile */
+        padding-bottom: 40px;
       }
       
-      #backToTop {
-        bottom: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
+      .hero-text h1 {
+        font-size: 2em;
+        margin-top: 10px;
       }
       
+      .hero-text .title {
+        font-size: 1em;
+        margin: 10px 0 1.5em;
+      }
+      
+      .hero-text p {
+        font-size: 0.95em;
+        line-height: 1.6;
+      }
+      
+      /* Adjust contact icons for mobile */
       .contact-icons {
-        gap: 20px;
+        gap: 15px;
+        margin-top: 30px;
       }
       
       .contact-icon {
-        width: 70px;
+        width: 65px;
       }
       
       .icon-container {
@@ -388,22 +420,77 @@
       }
       
       .contact-icon svg {
-        width: 25px;
-        height: 25px;
+        width: 24px;
+        height: 24px;
+      }
+      
+      .icon-label {
+        font-size: 0.75em;
+      }
+      
+      #backToTop {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.1em;
       }
     }
 
     @media (max-width: 600px) {
-      section {
-        padding: 100px 20px 30px;
+      /* For very small screens */
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 12px 15px;
+        min-height: 70px;
+      }
+      
+      nav .menu {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 6px;
+      }
+      
+      .hero img {
+        width: 150px;
+        height: 150px;
+        margin-top: 10px;
       }
       
       .hero-text h1 {
-        font-size: 2em;
+        font-size: 1.8em;
       }
       
-      h2 {
-        font-size: 1.7em;
+      section {
+        padding: 70px 15px 30px;
+      }
+      
+      #about {
+        padding-top: 70px; /* Slightly more for stacked navbar */
+      }
+      
+      .contact-icons {
+        gap: 10px;
+      }
+      
+      .contact-icon {
+        width: 55px;
+      }
+      
+      .icon-container {
+        width: 45px;
+        height: 45px;
+      }
+      
+      .contact-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+      
+      .icon-label {
+        font-size: 0.7em;
       }
       
       #backToTop {
@@ -413,27 +500,35 @@
         height: 40px;
         font-size: 1em;
       }
+    }
+
+    @media (max-width: 400px) {
+      /* For extra small screens */
+      .hero img {
+        width: 130px;
+        height: 130px;
+      }
+      
+      .hero-text h1 {
+        font-size: 1.6em;
+      }
+      
+      nav .menu a {
+        font-size: 0.8em;
+        padding: 2px 4px;
+      }
       
       .contact-icons {
-        gap: 15px;
+        gap: 8px;
       }
       
       .contact-icon {
-        width: 60px;
+        width: 50px;
       }
       
       .icon-container {
-        width: 45px;
-        height: 45px;
-      }
-      
-      .contact-icon svg {
-        width: 22px;
-        height: 22px;
-      }
-      
-      .icon-label {
-        font-size: 0.75em;
+        width: 40px;
+        height: 40px;
       }
     }
 
@@ -504,7 +599,7 @@
         and a BA in English Language Teaching (ELT).
       </p>
       <p>
-        My research examines how language ideologies, particularly accentism and native-speakerism, shape judgments of
+        My research examines how language ideologies—particularly accentism and native-speakerism—shape judgments of
         legitimacy, competence, and professionalism in English language education. Drawing on educational sociolinguistics,
         raciolinguistics, and critical discourse analysis, my work focuses on TESOL teacher education and multilingual higher
         education contexts.
@@ -527,8 +622,7 @@
   </p>
   <p>
     Pedagogically, I draw on principles from educational linguistics and translingual approaches to support multilingual
-    learners' rhetorical flexibility, disciplinary writing practices, and critical engagement with language norms. 
-    I am happy to share syllabi and sample materials upon request and welcome conversations about teaching and curriculum design.
+    learners' rhetorical flexibility, disciplinary writing practices, and critical engagement with language norms.
   </p>
   <h3>Courses Taught</h3>
   <ul>
@@ -552,9 +646,7 @@
   <p>
     Theoretically, my work is informed by raciolinguistics, educational sociolinguistics, Global Englishes, and critical
     discourse analysis, with a focus on how institutional norms, market logics, and racialized language ideologies shape
-    evaluations of linguistic legitimacy and professional competence. Through this work, I offer methodological and theoretical 
-    support for research on language ideologies, accentism, multilingual education, and teacher identity construction in higher 
-    education and teacher education contexts.
+    evaluations of linguistic legitimacy and professional competence.
   </p>
   <h3>Quantitative Research</h3>
   <ul>
@@ -731,7 +823,7 @@
 </section>
 
 <footer>
-  © 2025 Onur Özkaynak
+  © 2026 Onur Özkaynak
 </footer>
 
 <!-- Back to Top Button -->
