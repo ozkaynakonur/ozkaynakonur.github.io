@@ -180,6 +180,66 @@
       outline-offset: 2px;
     }
 
+    /* News & Updates specific styles */
+    .news-item {
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #eaeaea;
+    }
+
+    .news-item:last-child {
+      border-bottom: none;
+    }
+
+    .news-date {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #2c5282;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    .news-item h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .news-item h3 a {
+      text-decoration: none;
+      color: #222;
+      transition: color 0.2s ease;
+    }
+
+    .news-item h3 a:hover {
+      color: #2c5282;
+      text-decoration: underline;
+    }
+
+    .news-description {
+      color: #555;
+      margin: 0.5rem 0;
+    }
+
+    .paper-details {
+      margin-top: 0.75rem;
+      padding-left: 1rem;
+      border-left: 3px solid #ddd;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .paper-details a {
+      color: #2c5282;
+      text-decoration: none;
+    }
+
+    .paper-details a:hover {
+      text-decoration: underline;
+    }
+
     /* Hero section in About - FIXED FOR MOBILE */
     .hero {
       display: flex;
@@ -456,6 +516,15 @@
         height: 40px;
         font-size: 1em;
       }
+
+      /* News items mobile adjustments */
+      .news-item h3 {
+        font-size: 1rem;
+      }
+      
+      .news-date {
+        font-size: 0.75rem;
+      }
     }
 
     /* For very small mobile devices */
@@ -618,6 +687,7 @@
     <div class="name">Onur Özkaynak</div>
     <div class="menu">
       <a href="#about">About</a>
+      <a href="#news">News & Updates</a>
       <a href="#teaching">Teaching</a>
       <a href="#methods">Research</a>
       <a href="#publications">Publications</a>
@@ -656,7 +726,38 @@
   </div>
 </section>
 
-<!-- The rest of your HTML remains exactly the same -->
+<!-- ================= NEWS & UPDATES ================= -->
+<section id="news">
+  <h2>News & Updates</h2>
+  
+  <div class="news-item">
+    <div class="news-date">March 2026</div>
+    <h3><a href="https://oia.osu.edu/news/2026/03/24/six-students-awarded-graduate-associate-teaching-awards?utm_campaign=oia_marketing-activity_fy26&utm_content=1774448908&utm_medium=social&utm_source=linkedin" target="_blank" rel="noopener noreferrer">Received the Graduate Associate Teaching Award</a></h3>
+    <p class="news-description">The Ohio State University — Recognized for excellence in teaching and contributions to student learning.</p>
+  </div>
+  
+  <div class="news-item">
+    <div class="news-date">March 2026</div>
+    <h3><a href="https://www.aaal.org/news/congratulations-to-the-gsa-awardee-winners" target="_blank" rel="noopener noreferrer">Received the AAAL Graduate Student Award</a></h3>
+    <p class="news-description">American Association for Applied Linguistics — Awarded for best proposal.</p>
+  </div>
+  
+  <div class="news-item">
+    <div class="news-date">March 2026</div>
+    <h3><a href="https://georgiatesoljournal.org/index.php/GATESOL" target="_blank" rel="noopener noreferrer">Joined GATESOL as an associate editor</a></h3>
+    <p class="news-description">Georgia TESOL Journal — Serving as associate editor for the peer-reviewed publication.</p>
+  </div>
+  
+  <div class="news-item">
+    <div class="news-date">February 2026</div>
+    <h3>New paper published in <em>Language Awareness</em></h3>
+    <p class="news-description">Özkaynak, O. & Sayer, P. (2026). Whose English counts? Language ideologies in Turkish TESOL teacher education. <em>Language Awareness</em>.</p>
+    <div class="paper-details">
+      📄 <a href="https://doi.org/10.1080/09658416.2026.2625713" target="_blank" rel="noopener">View article →</a>
+    </div>
+  </div>
+</section>
+
 <!-- ================= TEACHING ================= -->
 <section id="teaching">
   <h2>Teaching</h2>
