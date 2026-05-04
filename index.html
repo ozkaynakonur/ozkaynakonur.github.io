@@ -2,25 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Onur Özkaynak - PhD Candidate in Foreign, Second, and Multilingual Language Education</title>
+  <title>Dr. Onur Özkaynak - PhD in Foreign, Second, and Multilingual Language Education</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Onur Özkaynak - PhD Candidate in Foreign, Second, and Multilingual Language Education at The Ohio State University. Research in language ideologies, accentism, and multilingual education.">
-  <meta name="keywords" content="multilingual education, TESOL, language ideologies, accentism, educational linguistics, Onur Özkaynak, Ohio State University, PhD candidate, language teacher education">
+  <meta name="description" content="Dr. Onur Özkaynak - PhD in Foreign, Second, and Multilingual Language Education from The Ohio State University. Research in language ideologies, accentism, and multilingual education.">
+  <meta name="keywords" content="multilingual education, TESOL, language ideologies, accentism, educational linguistics, Onur Özkaynak, Ohio State University, PhD, language teacher education">
   <meta name="author" content="Onur Özkaynak">
   <meta name="robots" content="index, follow">
   
   <!-- Open Graph / Social Media Meta Tags -->
-  <meta property="og:title" content="Onur Özkaynak - PhD Candidate in Multilingual Language Education">
-  <meta property="og:description" content="PhD Candidate in Multilingual Language Education at The Ohio State University. Research in language ideologies, accentism, and multilingual education.">
+  <meta property="og:title" content="Dr. Onur Özkaynak - PhD in Foreign, Second, and Multilingual Language Education">
+  <meta property="og:description" content="PhD in Foreign, Second, and Multilingual Language Education from The Ohio State University. Research in language ideologies, accentism, and multilingual education.">
   <meta property="og:type" content="website">
 
   <style>
     /* Reset and base styles */
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 60px; /* Reduced for mobile */
+      scroll-padding-top: 60px;
     }
 
     body {
@@ -31,7 +31,7 @@
       line-height: 1.65;
     }
 
-    /* Fixed navbar - COMPACT ON MOBILE */
+    /* Fixed navbar */
     nav {
       position: fixed;
       top: 0;
@@ -43,7 +43,6 @@
       transition: all 0.3s ease;
     }
 
-    /* Add shadow on scroll */
     nav.scrolled {
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
@@ -51,7 +50,7 @@
     .nav-inner {
       max-width: 1000px;
       margin: 0 auto;
-      padding: 8px 24px; /* Reduced padding */
+      padding: 8px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -59,22 +58,22 @@
 
     nav .name {
       font-weight: 600;
-      font-size: 1em; /* Smaller font */
+      font-size: 1em;
       white-space: nowrap;
     }
 
     nav .menu {
       display: flex;
-      gap: 10px; /* Smaller gap */
+      gap: 10px;
       flex-wrap: wrap;
     }
 
     nav .menu a {
       text-decoration: none;
       color: #222;
-      font-size: 0.85em; /* Smaller font */
+      font-size: 0.85em;
       white-space: nowrap;
-      padding: 3px 6px; /* Smaller padding */
+      padding: 3px 6px;
       border-radius: 3px;
       transition: all 0.2s ease;
     }
@@ -85,38 +84,25 @@
       transform: translateY(-1px);
     }
 
-    nav .menu a:focus {
-      outline: 2px solid #2c5282;
-      outline-offset: 2px;
-    }
-
-    /* Sections with proper spacing */
+    /* Sections */
     section {
       max-width: 1000px;
       margin: 0 auto;
-      padding: 80px 24px 60px; /* Reduced top padding */
+      padding: 80px 24px 60px;
       min-height: 80vh;
       transition: background-color 0.3s ease;
     }
 
-    /* Add subtle hover effect to sections */
-    section:hover {
-      background-color: rgba(0,0,0,0.01);
-    }
-
-    /* First section needs special treatment */
     #about {
-      padding-top: 60px; /* Much less padding for about section */
+      padding-top: 60px;
       min-height: calc(100vh - 60px);
     }
 
-    /* Add space between sections */
     section + section {
       border-top: 1px solid #eee;
       margin-top: 0;
     }
 
-    /* Content styles */
     h2 {
       margin: 0 0 1em;
       font-size: 2em;
@@ -173,11 +159,6 @@
     a.doi:hover {
       text-decoration: underline;
       color: #1a365d;
-    }
-
-    a.doi:focus {
-      outline: 2px solid #2c5282;
-      outline-offset: 2px;
     }
 
     /* News & Updates specific styles */
@@ -240,7 +221,7 @@
       text-decoration: underline;
     }
 
-    /* Hero section in About - FIXED FOR MOBILE */
+    /* Hero section */
     .hero {
       display: flex;
       gap: 60px;
@@ -278,7 +259,7 @@
       line-height: 1.7;
     }
 
-    /* Contact Section - Updated with SVG Icons */
+    /* Contact Section */
     #contact h2 {
       text-align: center;
       margin-bottom: 30px;
@@ -342,14 +323,12 @@
       margin-top: 5px;
     }
 
-    /* Specific icon colors on hover */
     .contact-icon.email:hover svg { fill: #ea4335; }
     .contact-icon.scholar:hover svg { fill: #4285f4; }
     .contact-icon.researchgate:hover svg { fill: #00ccbb; }
     .contact-icon.orcid:hover svg { fill: #a6ce39; }
     .contact-icon.linkedin:hover svg { fill: #0077b5; }
 
-    /* Footer */
     footer {
       text-align: center;
       padding: 40px 0;
@@ -360,13 +339,11 @@
       background-color: #f9f9f9;
     }
 
-    /* Back to Top Button */
     #backToTop {
       display: none;
       position: fixed;
       bottom: 30px;
       right: 30px;
-      padding: 12px 16px;
       background: #222;
       color: white;
       border: none;
@@ -386,296 +363,64 @@
     #backToTop:hover {
       background: #2c5282;
       transform: translateY(-3px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
     }
 
-    #backToTop:active {
-      transform: translateY(-1px);
-    }
-
-    /* MOBILE RESPONSIVE - FIXED FOR PHOTO VISIBILITY */
-    /* For tablets and smaller laptops */
+    /* Mobile Responsive */
     @media (max-width: 1024px) {
-      section {
-        padding: 70px 20px 50px;
-      }
-      
-      #about {
-        padding-top: 50px;
-        min-height: calc(100vh - 50px);
-      }
-      
-      .hero {
-        gap: 40px;
-      }
-      
-      .hero img {
-        width: 220px;
-        height: 220px;
-      }
+      section { padding: 70px 20px 50px; }
+      #about { padding-top: 50px; }
+      .hero { gap: 40px; }
+      .hero img { width: 220px; height: 220px; }
     }
 
-    /* For mobile devices */
     @media (max-width: 768px) {
-      /* Make navbar even more compact */
-      nav {
-        min-height: 50px;
-      }
-      
-      .nav-inner {
-        padding: 6px 15px;
-        min-height: 50px;
-      }
-      
-      nav .name {
-        font-size: 0.9em;
-      }
-      
-      nav .menu {
-        gap: 6px;
-      }
-      
-      nav .menu a {
-        font-size: 0.8em;
-        padding: 2px 4px;
-      }
-      
-      /* Adjust scroll padding for mobile */
-      html {
-        scroll-padding-top: 50px;
-      }
-      
-      /* About section adjustments */
-      #about {
-        padding-top: 50px;
-        min-height: auto;
-        padding-bottom: 40px;
-      }
-      
-      section {
-        padding: 60px 15px 40px;
-      }
-      
-      /* Hero layout for mobile */
-      .hero {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-        padding-top: 10px; /* Small extra padding at top */
-      }
-      
-      .hero img {
-        width: 160px;
-        height: 160px;
-        margin-top: 10px; /* Ensure photo starts below navbar */
-      }
-      
-      .hero-text h1 {
-        font-size: 1.8em;
-        margin-top: 0;
-      }
-      
-      .hero-text .title {
-        font-size: 0.95em;
-        margin: 8px 0 1.2em;
-      }
-      
-      .hero-text p {
-        font-size: 0.9em;
-        line-height: 1.6;
-      }
-      
-      /* Contact icons for mobile */
-      .contact-icons {
-        gap: 15px;
-        margin-top: 30px;
-      }
-      
-      .contact-icon {
-        width: 60px;
-      }
-      
-      .icon-container {
-        width: 45px;
-        height: 45px;
-      }
-      
-      .contact-icon svg {
-        width: 22px;
-        height: 22px;
-      }
-      
-      .icon-label {
-        font-size: 0.7em;
-      }
-      
-      #backToTop {
-        bottom: 15px;
-        right: 15px;
-        width: 40px;
-        height: 40px;
-        font-size: 1em;
-      }
-
-      /* News items mobile adjustments */
-      .news-item h3 {
-        font-size: 1rem;
-      }
-      
-      .news-date {
-        font-size: 0.75rem;
-      }
+      nav .nav-inner { padding: 6px 15px; }
+      nav .name { font-size: 0.9em; }
+      nav .menu a { font-size: 0.8em; padding: 2px 4px; }
+      html { scroll-padding-top: 50px; }
+      #about { padding-top: 50px; min-height: auto; padding-bottom: 40px; }
+      section { padding: 60px 15px 40px; }
+      .hero { flex-direction: column; text-align: center; gap: 30px; }
+      .hero img { width: 160px; height: 160px; margin-top: 10px; }
+      .hero-text h1 { font-size: 1.8em; }
+      .hero-text .title { font-size: 0.95em; }
+      .hero-text p { font-size: 0.9em; }
+      .contact-icons { gap: 15px; }
+      .contact-icon { width: 60px; }
+      .icon-container { width: 45px; height: 45px; }
+      .contact-icon svg { width: 22px; height: 22px; }
+      #backToTop { bottom: 15px; right: 15px; width: 40px; height: 40px; font-size: 1em; }
+      .news-item h3 { font-size: 1rem; }
+      .news-date { font-size: 0.75rem; }
     }
 
-    /* For very small mobile devices */
     @media (max-width: 480px) {
-      /* Even more compact navbar */
-      nav {
-        min-height: 45px;
-      }
-      
-      .nav-inner {
-        padding: 5px 10px;
-        min-height: 45px;
-      }
-      
-      nav .name {
-        font-size: 0.85em;
-      }
-      
-      nav .menu {
-        gap: 4px;
-      }
-      
-      nav .menu a {
-        font-size: 0.75em;
-        padding: 2px 3px;
-      }
-      
-      /* Adjust scroll padding */
-      html {
-        scroll-padding-top: 45px;
-      }
-      
-      /* About section - minimal padding */
-      #about {
-        padding-top: 45px;
-        padding-bottom: 30px;
-      }
-      
-      section {
-        padding: 50px 12px 30px;
-      }
-      
-      /* Hero adjustments */
-      .hero {
-        gap: 25px;
-      }
-      
-      .hero img {
-        width: 140px;
-        height: 140px;
-        margin-top: 5px;
-      }
-      
-      .hero-text h1 {
-        font-size: 1.6em;
-      }
-      
-      .hero-text .title {
-        font-size: 0.9em;
-      }
-      
-      .hero-text p {
-        font-size: 0.85em;
-      }
-      
-      /* Contact icons */
-      .contact-icons {
-        gap: 10px;
-      }
-      
-      .contact-icon {
-        width: 55px;
-      }
-      
-      .icon-container {
-        width: 40px;
-        height: 40px;
-      }
-      
-      .contact-icon svg {
-        width: 20px;
-        height: 20px;
-      }
-      
-      .icon-label {
-        font-size: 0.65em;
-      }
+      nav .nav-inner { padding: 5px 10px; }
+      nav .name { font-size: 0.85em; }
+      nav .menu a { font-size: 0.75em; padding: 2px 3px; }
+      html { scroll-padding-top: 45px; }
+      #about { padding-top: 45px; }
+      section { padding: 50px 12px 30px; }
+      .hero img { width: 140px; height: 140px; }
+      .hero-text h1 { font-size: 1.6em; }
+      .contact-icon { width: 55px; }
+      .icon-container { width: 40px; height: 40px; }
+      .contact-icon svg { width: 20px; height: 20px; }
     }
 
-    /* For extremely small screens */
     @media (max-width: 360px) {
-      /* Stack navbar items vertically if needed */
-      .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-        padding: 8px 10px;
-      }
-      
-      nav .menu {
-        width: 100%;
-        justify-content: flex-start;
-        gap: 3px;
-      }
-      
-      /* Adjust scroll padding */
-      html {
-        scroll-padding-top: 70px; /* More for stacked navbar */
-      }
-      
-      #about {
-        padding-top: 70px;
-      }
-      
-      .hero img {
-        width: 130px;
-        height: 130px;
-      }
+      .nav-inner { flex-direction: column; align-items: flex-start; gap: 5px; }
+      nav .menu { width: 100%; justify-content: flex-start; }
+      html { scroll-padding-top: 70px; }
+      #about { padding-top: 70px; }
+      .hero img { width: 130px; height: 130px; }
     }
 
-    /* Print styles */
     @media print {
-      nav {
-        display: none;
-      }
-      
-      #backToTop {
-        display: none !important;
-      }
-      
-      section {
-        padding: 20px 0;
-        border: none !important;
-        min-height: auto;
-        page-break-inside: avoid;
-      }
-      
-      a.doi::after {
-        content: " (" attr(href) ")";
-        font-size: 0.9em;
-        color: #666;
-      }
-      
-      .hero img {
-        width: 150px;
-        height: 150px;
-      }
-      
-      .contact-icons {
-        display: none;
-      }
+      nav, #backToTop, .contact-icons { display: none; }
+      section { padding: 20px 0; border: none !important; min-height: auto; page-break-inside: avoid; }
+      a.doi::after { content: " (" attr(href) ")"; font-size: 0.9em; color: #666; }
+      .hero img { width: 150px; height: 150px; }
     }
   </style>
 </head>
@@ -684,7 +429,7 @@
 
 <nav>
   <div class="nav-inner">
-    <div class="name">Onur Özkaynak</div>
+    <div class="name">Dr. Onur Özkaynak</div>
     <div class="menu">
       <a href="#about">About</a>
       <a href="#news">News & Updates</a>
@@ -700,17 +445,15 @@
 <!-- ================= ABOUT ================= -->
 <section id="about">
   <div class="hero">
-    <img src="onur.jpg" alt="Photo of Onur Özkaynak">
+    <img src="onur.jpg" alt="Photo of Dr. Onur Özkaynak">
     <div class="hero-text">
-      <h1>Onur Özkaynak</h1>
+      <h1>Onur Özkaynak, PhD</h1>
       <p class="title">
-        PhD Candidate in Foreign, Second, and Multilingual Language Education<br>
+        PhD in Foreign, Second, and Multilingual Language Education<br>
         The Ohio State University
       </p>
       <p>
-        I am a PhD candidate in Foreign, Second, and Multilingual Language Education at The Ohio State University and a Graduate Teaching Associate
-        in the Intercultural English Language Programs (IELP). I hold an MA in Teaching English as a Foreign Language (TEFL)
-        and a BA in English Language Teaching (ELT).
+        I recently completed my PhD in Foreign, Second, and Multilingual Language Education at The Ohio State University, where I also served as a Graduate Teaching Associate in the Intercultural English Language Programs (IELP). I hold an MA in Teaching English as a Foreign Language (TEFL) and a BA in English Language Teaching (ELT).
       </p>
       <p>
         My research examines how language ideologies—particularly accentism and native-speakerism—shape judgments of
@@ -729,18 +472,23 @@
 <!-- ================= NEWS & UPDATES ================= -->
 <section id="news">
   <h2>News & Updates</h2>
+  
+  <div class="news-item">
+    <div class="news-date">May 2026</div>
+    <h3>Doctoral degree conferred - The Ohio State University</h3>
+    <p class="news-description">Successfully completed all requirements and received my PhD in Foreign, Second, and Multilingual Language Education from The Ohio State University. Dissertation research on language ideologies and accentism in TESOL teacher education.</p>
+  </div>
    
- <div class="news-item">
-  <div class="news-date">April 2026</div>
-  <h3>Successfully defended my doctoral dissertation</h3>
-  <p class="news-description">The Ohio State University — Completed the final dissertation defense for my Ph.D. in Foreign, Second, and Multilingual Language Education.</p>
-</div>
+  <div class="news-item">
+    <div class="news-date">April 2026</div>
+    <h3>Successfully defended my doctoral dissertation</h3>
+    <p class="news-description">The Ohio State University — Completed the final dissertation defense for my Ph.D. in Foreign, Second, and Multilingual Language Education.</p>
+  </div>
   
   <div class="news-item">
     <div class="news-date">April 2026</div>
-    <h3><a href="https://ehe.osu.edu/news/listing/ohio-state-annual-events-feature-student-research" target="_blank" rel="noopener noreferrer">Featured in Ohio State news for research on AI and accent interpretation
-</a></h3>
-    <p class="news-description">The Ohio State University — Featured in a university news story on the Edward F. Hayes Advanced Research Forum for presenting doctoral research on how AI tools interpret the English accents of speakers from different parts of the world..</p>
+    <h3><a href="https://ehe.osu.edu/news/listing/ohio-state-annual-events-feature-student-research" target="_blank" rel="noopener noreferrer">Featured in Ohio State news for research on AI and accent interpretation</a></h3>
+    <p class="news-description">The Ohio State University — Featured in a university news story on the Edward F. Hayes Advanced Research Forum for presenting doctoral research on how AI tools interpret the English accents of speakers from different parts of the world.</p>
   </div>
   
   <div class="news-item">
@@ -752,13 +500,13 @@
   <div class="news-item">
     <div class="news-date">March 2026</div>
     <h3><a href="https://www.aaal.org/news/congratulations-to-the-gsa-awardee-winners" target="_blank" rel="noopener noreferrer">Received the AAAL Graduate Student Award</a></h3>
-    <p class="news-description">American Association for Applied Linguistics — Awarded for best proposal.</p>
+    <p class="news-description">American Association for Applied Linguistics — Awarded for best graduate student proposal.</p>
   </div>
   
   <div class="news-item">
     <div class="news-date">March 2026</div>
     <h3><a href="https://georgiatesoljournal.org/index.php/GATESOL/about/editorialTeam" target="_blank" rel="noopener noreferrer">Joined GATESOL as an associate editor</a></h3>
-    <p class="news-description">Georgia TESOL Journal — Serving as associate editor for the peer-reviewed publication.</p>
+    <p class="news-description">Georgia TESOL Journal — Started serving as associate editor.</p>
   </div>
   
   <div class="news-item">
@@ -863,9 +611,11 @@
 
   <h3>Book Reviews</h3>
   <ul>
-    <li>Özkaynak, O. (2024). Review of Deumert & Makoni. <em>Critical Inquiry in Language Studies</em>. <a class="doi" href="https://doi.org/10.1080/15427587.2024.2420084" target="_blank" rel="noopener">https://doi.org/10.1080/15427587.2024.2420084</a></li>
-    <li>Özkaynak, O. (2023). Review of MacSwan (Ed.). <em>TESOL Journal</em>, 15(1). <a class="doi" href="https://doi.org/10.1002/tesj.724" target="_blank" rel="noopener">https://doi.org/10.1002/tesj.724</a></li>
-    <li>Özkaynak, O. (2023). Review of Dovchin. <em>International Journal of Multilingualism</em>, 21(3), 1734–1737. <a class="doi" href="https://doi.org/10.1080/14790718.2022.2164771" target="_blank" rel="noopener">https://doi.org/10.1080/14790718.2022.2164771</a></li>
+    <li>Özkaynak, O. (2026). [Review of the book <em>Decolonising language teacher education: Voices from the Global North and Global South</em>, edited by F. Ehlers-Zavala, M. Back, & Y. Ortega]. <em>Journal of Language, Identity and Education</em>. <a class="doi" href="https://doi.org/10.1080/15348458.2026.2658707" target="_blank" rel="noopener">https://doi.org/10.1080/15348458.2026.2658707</a></li>
+    <li>Özkaynak, O. (2024). [Review of the book <em>Southern theory to decolonizing sociolinguistics: Voices, questions and alternatives</em>, edited by A. Deumert & S. Makoni]. <em>Critical Inquiry in Language Studies</em>. <a class="doi" href="https://doi.org/10.1080/15427587.2024.2420084" target="_blank" rel="noopener">https://doi.org/10.1080/15427587.2024.2420084</a></li>
+    <li>Özkaynak, O. & Peker, H. (2023). [Review of the book <em>Translation and translanguaging</em>, edited by M. Baynham & T. K. Lee]. <em>MEXTESOL Journal</em>, 47(2).</li>
+    <li>Özkaynak, O. (2023). [Review of the book <em>Multilingual perspectives on translanguaging</em> edited by J. MacSwan]. <em>TESOL Journal</em>, 15(1). <a class="doi" href="https://doi.org/10.1002/tesj.724" target="_blank" rel="noopener">https://doi.org/10.1002/tesj.724</a></li>
+    <li>Özkaynak, O. (2023). [Review of the book <em>Translingual discrimination</em>, by S. Dovchin]. <em>International Journal of Multilingualism</em>, 21(3), 1734-1737. <a class="doi" href="https://doi.org/10.1080/14790718.2022.2164771" target="_blank" rel="noopener">https://doi.org/10.1080/14790718.2022.2164771</a></li>
   </ul>
 </section>
 
@@ -927,7 +677,6 @@
   </p>
   
   <div class="contact-icons">
-    <!-- Email -->
     <a href="mailto:ozkaynak.2@osu.edu" class="contact-icon email" title="Email: ozkaynak.2@osu.edu">
       <div class="icon-container">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -937,7 +686,6 @@
       <div class="icon-label">Email</div>
     </a>
     
-    <!-- Google Scholar -->
     <a href="https://scholar.google.com/citations?user=W3Mw81kAAAAJ&hl=en&authuser=1" class="contact-icon scholar" title="Google Scholar" target="_blank" rel="noopener">
       <div class="icon-container">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -947,7 +695,6 @@
       <div class="icon-label">Scholar</div>
     </a>
     
-    <!-- ResearchGate -->
     <a href="https://www.researchgate.net/profile/Onur-Oezkaynak?ev=hdr_xprf" class="contact-icon researchgate" title="ResearchGate" target="_blank" rel="noopener">
       <div class="icon-container">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -957,7 +704,6 @@
       <div class="icon-label">ResearchGate</div>
     </a>
     
-    <!-- ORCID -->
     <a href="https://orcid.org/0000-0001-9239-581X" class="contact-icon orcid" title="ORCID" target="_blank" rel="noopener">
       <div class="icon-container">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -967,7 +713,6 @@
       <div class="icon-label">ORCID</div>
     </a>
     
-    <!-- LinkedIn -->
     <a href="https://www.linkedin.com/in/onur-özkaynak-05445b29" class="contact-icon linkedin" title="LinkedIn" target="_blank" rel="noopener">
       <div class="icon-container">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -977,23 +722,17 @@
       <div class="icon-label">LinkedIn</div>
     </a>
   </div>
-  
-  <p style="text-align: center; margin-top: 30px; color: #555;">
-  </p>
 </section>
 
 <footer>
-  © 2026 Onur Özkaynak
+  © 2026 Dr. Onur Özkaynak
 </footer>
 
-<!-- Back to Top Button -->
 <button id="backToTop" title="Back to top">↑</button>
 
 <script>
-  // Back to Top Button functionality
   const backToTopButton = document.getElementById('backToTop');
   
-  // Show/hide button based on scroll position
   window.addEventListener('scroll', () => {
     if (window.scrollY > 500) {
       backToTopButton.style.display = 'flex';
@@ -1001,7 +740,6 @@
       backToTopButton.style.display = 'none';
     }
     
-    // Add shadow to navbar on scroll
     const nav = document.querySelector('nav');
     if (window.scrollY > 10) {
       nav.classList.add('scrolled');
@@ -1010,15 +748,10 @@
     }
   });
   
-  // Smooth scroll to top when clicked
   backToTopButton.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
   
-  // Add focus styles for keyboard navigation
   document.addEventListener('keyup', (e) => {
     if (e.key === 'Tab') {
       const focused = document.activeElement;
