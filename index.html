@@ -144,7 +144,6 @@
     nav .menu a {
       position: relative;
       padding: 0.35rem 0;
-      border-radius: 0;
       color: var(--ink);
       font-size: 0.72rem;
       font-weight: 800;
@@ -170,9 +169,7 @@
     }
 
     nav .menu a:hover {
-      background: transparent;
       color: var(--rust);
-      text-decoration: none;
     }
 
     nav .menu a:hover::after,
@@ -191,14 +188,10 @@
       border: 0;
     }
 
-    section + section {
-      margin-top: 0;
-      border-top: 0;
-    }
-
     h1,
     h2,
-    h3 {
+    h3,
+    h4 {
       text-wrap: balance;
     }
 
@@ -212,17 +205,6 @@
       font-weight: 400;
       letter-spacing: -0.055em;
       line-height: 1.03;
-    }
-
-    h2::before {
-      display: block;
-      margin-bottom: 1rem;
-      color: var(--rust);
-      font-family: var(--sans);
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
     }
 
     h3 {
@@ -322,31 +304,6 @@
       line-height: 1.75;
     }
 
-    /* Section labels */
-    #news h2::before {
-      content: "01 · News & updates";
-    }
-
-    #teaching h2::before {
-      content: "02 · Teaching";
-    }
-
-    #methods h2::before {
-      content: "03 · Research";
-    }
-
-    #publications h2::before {
-      content: "04 · Publications";
-    }
-
-    #presentations h2::before {
-      content: "05 · Presentations";
-    }
-
-    #contact h2::before {
-      content: "06 · Contact";
-    }
-
     /* News */
     #news {
       background: var(--sage-pale);
@@ -372,7 +329,6 @@
     }
 
     .news-date {
-      margin: 0;
       color: var(--rust);
       font-size: 0.72rem;
       font-weight: 800;
@@ -474,10 +430,6 @@
       border-color: rgba(255, 255, 255, 0.2);
     }
 
-    #methods h2::before {
-      color: var(--sage);
-    }
-
     #methods > p {
       color: var(--sage-pale);
     }
@@ -515,10 +467,37 @@
       color: var(--sage);
     }
 
+    .grant-item {
+      max-width: 920px;
+      margin-top: 1.5rem;
+      padding: clamp(1.4rem, 3vw, 2rem);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-left: 4px solid var(--sage);
+    }
+
+    .grant-item h4 {
+      margin: 0 0 1rem;
+      color: var(--white);
+      font-family: var(--serif);
+      font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+      font-weight: 400;
+      line-height: 1.35;
+    }
+
+    .grant-item p {
+      max-width: none;
+      margin: 0.45rem 0;
+      color: var(--sage-pale);
+    }
+
+    .grant-item strong {
+      color: var(--sage);
+    }
+
     /* Publications */
     #publications {
       background: var(--white);
-      counter-reset: publication;
     }
 
     #publications h3,
@@ -535,22 +514,21 @@
 
     #publications li {
       position: relative;
-      padding: 1.4rem 1rem 1.4rem 4.7rem;
+      padding: 1.4rem 1rem 1.4rem 2.1rem;
       border-bottom: 1px solid var(--line);
-      counter-increment: publication;
       font-size: 0.96rem;
       line-height: 1.7;
     }
 
     #publications li::before {
-      content: counter(publication, decimal-leading-zero);
+      content: "";
       position: absolute;
-      top: 1.55rem;
-      left: 0.35rem;
-      color: var(--rust);
-      font-size: 0.7rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
+      top: 2.05rem;
+      left: 0.25rem;
+      width: 0.55rem;
+      height: 0.55rem;
+      background: var(--rust);
+      border-radius: 50%;
     }
 
     a.doi {
@@ -604,12 +582,8 @@
       font-size: clamp(4rem, 10vw, 8.5rem);
     }
 
-    #contact h2::before {
-      margin-bottom: 0.5rem;
-    }
-
     #contact > p {
-      margin: 0 auto 3rem !important;
+      margin: 0 auto 3rem;
       color: #435355;
       font-family: var(--serif);
       font-size: 1.2rem;
@@ -619,7 +593,6 @@
       display: flex;
       justify-content: center;
       gap: clamp(0.8rem, 2vw, 1.5rem);
-      margin-top: 0;
       flex-wrap: wrap;
     }
 
@@ -674,7 +647,6 @@
       text-transform: uppercase;
     }
 
-    /* Footer */
     footer {
       margin: 0;
       padding: 2rem max(1.5rem, calc((100vw - 1180px) / 2));
@@ -788,10 +760,6 @@
       #methods ul {
         grid-template-columns: 1fr;
       }
-
-      #methods li {
-        padding-right: 0;
-      }
     }
 
     @media (max-width: 520px) {
@@ -822,14 +790,6 @@
         font-size: clamp(2.5rem, 13vw, 4rem);
       }
 
-      #publications li {
-        padding-left: 3.6rem;
-      }
-
-      #presentations li {
-        padding-right: 0;
-      }
-
       .contact-icons {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -857,52 +817,6 @@
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
-      }
-    }
-
-    @media print {
-      nav,
-      #backToTop,
-      .contact-icons {
-        display: none !important;
-      }
-
-      body,
-      section,
-      #news,
-      #teaching,
-      #methods,
-      #publications,
-      #presentations,
-      #contact {
-        background: white !important;
-        color: black !important;
-      }
-
-      section {
-        padding: 1.5rem 0;
-      }
-
-      h1,
-      h2,
-      h3,
-      #methods h2,
-      #methods h3,
-      #methods p,
-      #methods li {
-        color: black !important;
-      }
-
-      .hero img {
-        width: 180px;
-        height: 220px;
-        box-shadow: none;
-      }
-
-      a.doi::after {
-        content: " (" attr(href) ")";
-        color: #555;
-        font-size: 0.85em;
       }
     }
   </style>
@@ -966,6 +880,36 @@
     <h2>News &amp; Updates</h2>
 
     <div class="news-item">
+      <div class="news-date">July 2026</div>
+      <h3>New paper published in <em>International Journal of Qualitative Studies in Education</em></h3>
+      <p class="news-description">
+        Özkaynak, O. &amp; Arslan, Z. (2026). Neoliberal visions, nationalist missions: A critical discourse analysis of English language teacher education in Türkiye. <em>International Journal of Qualitative Studies in Education</em>, 39(1), 2698433.
+      </p>
+      <div class="paper-details">
+        📄 <a href="https://www.tandfonline.com/doi/full/10.1080/09518398.2026.2698433" target="_blank" rel="noopener">View article →</a>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-date">July 2026</div>
+      <h3>New paper published in <em>Profile: Issues in Teachers’ Professional Development</em></h3>
+      <p class="news-description">
+        Özkaynak, O., Şanal, M., &amp; Arslan, Z. (2026). Teaching social justice in English for academic purposes classrooms: Perspectives from Turkish universities. <em>Profile: Issues in Teachers’ Professional Development</em>, 28(2), 103–118.
+      </p>
+      <div class="paper-details">
+        📄 <a href="https://revistas.unal.edu.co/index.php/profile/article/view/120998" target="_blank" rel="noopener">View article →</a>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-date">June 2026</div>
+      <h3>Awarded Ohio State Teaching &amp; Learning Seed Grant</h3>
+      <p class="news-description">
+        <em>Teachers and AI Listeners: Racialized Accent Stereotyping in Evaluation of Student Responses</em> received $14,870.72 in funding for 2026–2027. Peter Sayer (The Ohio State University) serves as principal investigator, with Onur Özkaynak and Zeynep Arslan (The Ohio State University) and Kevin Hirschi (The University of Texas at San Antonio) as co-investigators.
+      </p>
+    </div>
+
+    <div class="news-item">
       <div class="news-date">May 2026</div>
       <h3>New paper published in <em>TESOL Journal</em></h3>
       <p class="news-description">
@@ -1023,7 +967,7 @@
     <div class="news-item">
       <div class="news-date">March 2026</div>
       <h3>
-        <a href="https://oia.osu.edu/news/2026/03/24/six-students-awarded-graduate-associate-teaching-awards?utm_campaign=oia_marketing-activity_fy26&amp;utm_content=1774448908&amp;utm_medium=social&amp;utm_source=linkedin" target="_blank" rel="noopener noreferrer">
+        <a href="https://oia.osu.edu/news/2026/03/24/six-students-awarded-graduate-associate-teaching-awards" target="_blank" rel="noopener noreferrer">
           Received the Graduate Associate Teaching Award
         </a>
       </h3>
@@ -1081,7 +1025,6 @@
     </p>
 
     <h3>Courses Taught</h3>
-
     <ul>
       <li>Applied Linguistics P1/2: Educational Linguistics, TESOL Methods, Sociolinguistics, and Language Assessment</li>
       <li>ENGL 100: Advanced English Composition Skills for College Students</li>
@@ -1138,6 +1081,29 @@
       <li>Dedoose (qualitative and mixed-methods analysis)</li>
       <li>SPSS, Jamovi, SmartPLS (quantitative analysis)</li>
     </ul>
+
+    <h3>Funded Research</h3>
+
+    <article class="grant-item">
+      <h4>Teachers and AI Listeners: Racialized Accent Stereotyping in Evaluation of Student Responses</h4>
+
+      <p>
+        <strong>Grant:</strong> Department of Teaching &amp; Learning Seed Grant, The Ohio State University
+      </p>
+
+      <p>
+        <strong>Status:</strong> Awarded, 2026–2027 ·
+        <strong>Amount:</strong> $14,870.72
+      </p>
+
+      <p>
+        <strong>Principal Investigator:</strong> Peter Sayer, The Ohio State University
+      </p>
+
+      <p>
+        <strong>Co-Investigators:</strong> Onur Özkaynak and Zeynep Arslan, The Ohio State University; Kevin Hirschi, The University of Texas at San Antonio
+      </p>
+    </article>
   </section>
 
   <!-- ================= PUBLICATIONS ================= -->
@@ -1153,6 +1119,16 @@
 
     <h3>Peer-Reviewed Journal Articles</h3>
     <ul>
+      <li>
+        Özkaynak, O. &amp; Arslan, Z. (2026). Neoliberal visions, nationalist missions: A critical discourse analysis of English language teacher education in Türkiye. <em>International Journal of Qualitative Studies in Education</em>, 39(1), 2698433.
+        <a class="doi" href="https://www.tandfonline.com/doi/full/10.1080/09518398.2026.2698433" target="_blank" rel="noopener">https://doi.org/10.1080/09518398.2026.2698433</a>
+      </li>
+
+      <li>
+        Özkaynak, O., Şanal, M., &amp; Arslan, Z. (2026). Teaching social justice in English for academic purposes classrooms: Perspectives from Turkish universities. <em>Profile: Issues in Teachers’ Professional Development</em>, 28(2), 103–118.
+        <a class="doi" href="https://revistas.unal.edu.co/index.php/profile/article/view/120998" target="_blank" rel="noopener">https://doi.org/10.15446/profile.v28n2.120998</a>
+      </li>
+
       <li>
         Özkaynak, O. &amp; Sayer, P. (2026). Accent and appearance in pre-service English teacher identity: Embodied language ideologies in the political economy of language education in Türkiye. <em>TESOL Journal</em>.
         <a class="doi" href="https://doi.org/10.1002/tesj.70136" target="_blank" rel="noopener">https://doi.org/10.1002/tesj.70136</a>
@@ -1281,13 +1257,10 @@
   <section id="contact">
     <h2>Contact</h2>
 
-    <p>
-      Feel free to reach out via email or connect with me on academic platforms.
-    </p>
+    <p>Feel free to reach out via email or connect with me on academic platforms.</p>
 
     <div class="contact-icons">
-
-      <a href="mailto:ozkaynak.2@osu.edu" class="contact-icon email" title="Email: ozkaynak.2@osu.edu">
+      <a href="mailto:ozkaynak.2@osu.edu" class="contact-icon email" title="Email">
         <div class="icon-container">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
@@ -1296,7 +1269,7 @@
         <div class="icon-label">Email</div>
       </a>
 
-      <a href="https://scholar.google.com/citations?user=W3Mw81kAAAAJ&amp;hl=en&amp;authuser=1" class="contact-icon scholar" title="Google Scholar" target="_blank" rel="noopener">
+      <a href="https://scholar.google.com/citations?user=W3Mw81kAAAAJ&amp;hl=en" class="contact-icon scholar" title="Google Scholar" target="_blank" rel="noopener">
         <div class="icon-container">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
@@ -1305,7 +1278,7 @@
         <div class="icon-label">Scholar</div>
       </a>
 
-      <a href="https://www.researchgate.net/profile/Onur-Oezkaynak?ev=hdr_xprf" class="contact-icon researchgate" title="ResearchGate" target="_blank" rel="noopener">
+      <a href="https://www.researchgate.net/profile/Onur-Oezkaynak" class="contact-icon researchgate" title="ResearchGate" target="_blank" rel="noopener">
         <div class="icon-container">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
@@ -1331,7 +1304,6 @@
         </div>
         <div class="icon-label">LinkedIn</div>
       </a>
-
     </div>
   </section>
 
