@@ -122,7 +122,7 @@
     }
 
     nav .name {
-      color: var(--ink) !important;
+      color: var(--ink);
       font-family: var(--serif);
       font-size: 1.2rem;
       font-weight: 700;
@@ -130,6 +130,7 @@
       white-space: nowrap;
     }
 
+    nav .name,
     nav .name::first-letter {
       color: var(--ink) !important;
     }
@@ -144,6 +145,7 @@
     nav .menu a {
       position: relative;
       padding: 0.35rem 0;
+      border-radius: 0;
       color: var(--ink);
       font-size: 0.72rem;
       font-weight: 800;
@@ -169,7 +171,10 @@
     }
 
     nav .menu a:hover {
+      background: transparent;
       color: var(--rust);
+      text-decoration: none;
+      transform: none;
     }
 
     nav .menu a:hover::after,
@@ -177,21 +182,24 @@
       transform: scaleX(1);
     }
 
-    /* Shared sections */
+    /* Shared section styles */
     section {
       width: 100%;
       max-width: none;
       min-height: 0;
       margin: 0;
-      padding: clamp(5rem, 9vw, 9rem)
-        max(1.5rem, calc((100vw - 1180px) / 2));
+      padding: clamp(5rem, 9vw, 9rem) max(1.5rem, calc((100vw - 1180px) / 2));
       border: 0;
+    }
+
+    section + section {
+      margin-top: 0;
+      border-top: 0;
     }
 
     h1,
     h2,
-    h3,
-    h4 {
+    h3 {
       text-wrap: balance;
     }
 
@@ -205,6 +213,10 @@
       font-weight: 400;
       letter-spacing: -0.055em;
       line-height: 1.03;
+    }
+
+    h2::after {
+      display: none;
     }
 
     h3 {
@@ -232,7 +244,12 @@
       padding: 0;
     }
 
-    /* Hero */
+    li:hover {
+      background: transparent;
+      padding-left: 0;
+    }
+
+    /* About */
     #about {
       min-height: calc(100svh - 82px);
       padding-top: clamp(4rem, 8vw, 7.5rem);
@@ -241,6 +258,7 @@
 
     .hero {
       width: 100%;
+      min-height: 0;
       display: grid;
       grid-template-columns: minmax(300px, 0.65fr) minmax(0, 1.35fr);
       gap: clamp(3rem, 8vw, 8rem);
@@ -304,6 +322,10 @@
       line-height: 1.75;
     }
 
+    .hero-text p:not(.title):first-of-type {
+      color: var(--text);
+    }
+
     /* News */
     #news {
       background: var(--sage-pale);
@@ -324,11 +346,14 @@
     }
 
     .news-item:last-child {
+      margin: 0;
       padding-bottom: 0;
       border-bottom: 0;
     }
 
     .news-date {
+      display: block;
+      margin: 0;
       color: var(--rust);
       font-size: 0.72rem;
       font-weight: 800;
@@ -343,6 +368,7 @@
     }
 
     .news-item h3 a {
+      color: inherit;
       text-decoration-color: transparent;
       text-underline-offset: 0.22em;
       transition: color 180ms ease, text-decoration-color 180ms ease;
@@ -353,36 +379,11 @@
       text-decoration-color: currentColor;
     }
 
-    .news-description,
-    .paper-details {
-      grid-column: 2;
-    }
-
     .news-description {
+      grid-column: 2;
       max-width: 780px;
       margin: 0.5rem 0 0;
       color: #435355;
-    }
-
-    .paper-details {
-      width: fit-content;
-      margin-top: 0.85rem;
-      padding: 0.55rem 0.8rem;
-      border: 1px solid rgba(16, 42, 44, 0.24);
-      border-left: 3px solid var(--rust);
-      background: rgba(255, 253, 248, 0.4);
-      color: var(--ink);
-      font-size: 0.82rem;
-    }
-
-    .paper-details a {
-      color: var(--ink);
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .paper-details a:hover {
-      color: var(--rust);
     }
 
     /* Teaching */
@@ -452,6 +453,7 @@
     #methods ul {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0;
     }
 
     #methods li {
@@ -583,7 +585,7 @@
     }
 
     #contact > p {
-      margin: 0 auto 3rem;
+      margin: 0 auto 3rem !important;
       color: #435355;
       font-family: var(--serif);
       font-size: 1.2rem;
@@ -593,6 +595,7 @@
       display: flex;
       justify-content: center;
       gap: clamp(0.8rem, 2vw, 1.5rem);
+      margin-top: 0;
       flex-wrap: wrap;
     }
 
@@ -626,20 +629,29 @@
       margin-bottom: 0.75rem;
       background: var(--ink);
       border-radius: 50%;
+      box-shadow: none;
       transition: background 180ms ease;
     }
 
     .contact-icon:hover .icon-container {
       background: var(--rust);
+      box-shadow: none;
     }
 
-    .contact-icon svg {
+    .contact-icon svg,
+    .contact-icon:hover svg,
+    .contact-icon.email:hover svg,
+    .contact-icon.scholar:hover svg,
+    .contact-icon.researchgate:hover svg,
+    .contact-icon.orcid:hover svg,
+    .contact-icon.linkedin:hover svg {
       width: 24px;
       height: 24px;
       fill: var(--white);
     }
 
     .icon-label {
+      margin: 0;
       color: var(--ink);
       font-size: 0.73rem;
       font-weight: 800;
@@ -647,10 +659,12 @@
       text-transform: uppercase;
     }
 
+    /* Footer and back-to-top */
     footer {
       margin: 0;
       padding: 2rem max(1.5rem, calc((100vw - 1180px) / 2));
       background: var(--ink);
+      border: 0;
       color: var(--sage-pale);
       font-size: 0.76rem;
       letter-spacing: 0.06em;
@@ -682,7 +696,6 @@
       transform: translateY(-3px);
     }
 
-    /* Responsive layout */
     @media (max-width: 1050px) {
       :root {
         --page: min(100% - 2rem, 1180px);
@@ -751,14 +764,17 @@
       }
 
       .news-item h3,
-      .news-description,
-      .paper-details {
+      .news-description {
         grid-column: 1;
       }
 
       #teaching ul,
       #methods ul {
         grid-template-columns: 1fr;
+      }
+
+      #methods li {
+        padding-right: 0;
       }
     }
 
@@ -790,6 +806,10 @@
         font-size: clamp(2.5rem, 13vw, 4rem);
       }
 
+      #presentations li {
+        padding-right: 0;
+      }
+
       .contact-icons {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -817,6 +837,53 @@
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media print {
+      nav,
+      #backToTop,
+      .contact-icons {
+        display: none !important;
+      }
+
+      body,
+      section,
+      #news,
+      #teaching,
+      #methods,
+      #publications,
+      #presentations,
+      #contact {
+        background: white !important;
+        color: black !important;
+      }
+
+      section {
+        padding: 1.5rem 0;
+        page-break-inside: auto;
+      }
+
+      h1,
+      h2,
+      h3,
+      #methods h2,
+      #methods h3,
+      #methods p,
+      #methods li {
+        color: black !important;
+      }
+
+      .hero img {
+        width: 180px;
+        height: 220px;
+        box-shadow: none;
+      }
+
+      a.doi::after {
+        content: " (" attr(href) ")";
+        color: #555;
+        font-size: 0.85em;
       }
     }
   </style>
@@ -861,7 +928,7 @@
         </p>
 
         <p>
-          I recently completed my PhD in Foreign, Second, and Multilingual Language Education at The Ohio State University, where I also served as a Graduate Teaching Associate in the Intercultural English Language Programs (IELP). I currently teach college writing at Central Ohio Technical College (COTC). I hold an MA in Teaching English as a Foreign Language (TEFL) and a BA in English Language Teaching (ELT).
+          I completed my PhD in Foreign, Second, and Multilingual Language Education at The Ohio State University, where I also served as a Graduate Teaching Associate in the Intercultural English Language Programs (IELP). I currently teach college writing at Central Ohio Technical College (COTC). I hold an MA in Teaching English as a Foreign Language (TEFL) and a BA in English Language Teaching (ELT).
         </p>
 
         <p>
@@ -875,35 +942,43 @@
     </div>
   </section>
 
-  <!-- ================= NEWS ================= -->
+  <!-- ================= NEWS & UPDATES ================= -->
   <section id="news">
     <h2>News &amp; Updates</h2>
 
     <div class="news-item">
       <div class="news-date">July 2026</div>
-      <h3>New paper published in <em>International Journal of Qualitative Studies in Education</em></h3>
+
+      <h3>
+        New paper published in
+        <em>International Journal of Qualitative Studies in Education</em>
+      </h3>
+
       <p class="news-description">
-        Özkaynak, O. &amp; Arslan, Z. (2026). Neoliberal visions, nationalist missions: A critical discourse analysis of English language teacher education in Türkiye. <em>International Journal of Qualitative Studies in Education</em>, 39(1), 2698433.
+        Özkaynak, O., &amp; Arslan, Z. (2026). Neoliberal visions, nationalist missions: A critical discourse analysis of English language teacher education in Türkiye. <em>International Journal of Qualitative Studies in Education, 39</em>(1), 2698433.
+        <a class="doi" href="https://doi.org/10.1080/09518398.2026.2698433" target="_blank" rel="noopener">https://doi.org/10.1080/09518398.2026.2698433</a>
       </p>
-      <div class="paper-details">
-        📄 <a href="https://www.tandfonline.com/doi/full/10.1080/09518398.2026.2698433" target="_blank" rel="noopener">View article →</a>
-      </div>
     </div>
 
     <div class="news-item">
       <div class="news-date">July 2026</div>
-      <h3>New paper published in <em>Profile: Issues in Teachers’ Professional Development</em></h3>
+
+      <h3>
+        New paper published in
+        <em>Profile: Issues in Teachers’ Professional Development</em>
+      </h3>
+
       <p class="news-description">
-        Özkaynak, O., Şanal, M., &amp; Arslan, Z. (2026). Teaching social justice in English for academic purposes classrooms: Perspectives from Turkish universities. <em>Profile: Issues in Teachers’ Professional Development</em>, 28(2), 103–118.
+        Özkaynak, O., Şanal, M., &amp; Arslan, Z. (2026). Teaching social justice in English for academic purposes classrooms: Perspectives from Turkish universities. <em>Profile: Issues in Teachers’ Professional Development, 28</em>(2), 103–118.
+        <a class="doi" href="https://revistas.unal.edu.co/index.php/profile/article/view/120998" target="_blank" rel="noopener">https://doi.org/10.15446/profile.v28n2.120998</a>
       </p>
-      <div class="paper-details">
-        📄 <a href="https://revistas.unal.edu.co/index.php/profile/article/view/120998" target="_blank" rel="noopener">View article →</a>
-      </div>
     </div>
 
     <div class="news-item">
       <div class="news-date">June 2026</div>
+
       <h3>Awarded Ohio State Teaching &amp; Learning Seed Grant</h3>
+
       <p class="news-description">
         <em>Teachers and AI Listeners: Racialized Accent Stereotyping in Evaluation of Student Responses</em> received $14,870.72 in funding for 2026–2027. Peter Sayer (The Ohio State University) serves as principal investigator, with Onur Özkaynak and Zeynep Arslan (The Ohio State University) and Kevin Hirschi (The University of Texas at San Antonio) as co-investigators.
       </p>
@@ -911,18 +986,20 @@
 
     <div class="news-item">
       <div class="news-date">May 2026</div>
+
       <h3>New paper published in <em>TESOL Journal</em></h3>
+
       <p class="news-description">
-        Özkaynak, O. &amp; Sayer, P. (2026). Accent and appearance in pre-service English teacher identity: Embodied language ideologies in the political economy of language education in Türkiye. <em>TESOL Journal</em>.
+        Özkaynak, O., &amp; Sayer, P. (2026). Accent and appearance in pre‐service English teacher identity: Embodied language ideologies in the political economy of language education in Türkiye. <em>TESOL Journal, 17</em>(3), e70136.
+        <a class="doi" href="https://doi.org/10.1002/tesj.70136" target="_blank" rel="noopener">https://doi.org/10.1002/tesj.70136</a>
       </p>
-      <div class="paper-details">
-        📄 <a href="https://doi.org/10.1002/tesj.70136" target="_blank" rel="noopener">View article →</a>
-      </div>
     </div>
 
     <div class="news-item">
       <div class="news-date">May 2026</div>
+
       <h3>Received Dean's Award for Excellence</h3>
+
       <p class="news-description">
         The Ohio State University, College of Education and Human Ecology — Awarded for outstanding contributions and excellence.
       </p>
@@ -930,85 +1007,86 @@
 
     <div class="news-item">
       <div class="news-date">May 2026</div>
+
       <h3>Doctoral Degree Conferred — The Ohio State University</h3>
+
       <p class="news-description">
-        Successfully completed all requirements and received my PhD in Foreign, Second, and Multilingual Language Education from The Ohio State University. Dissertation research on language ideologies and accentism in TESOL teacher education.
+        Received my PhD in Foreign, Second, and Multilingual Language Education from The Ohio State University.
       </p>
     </div>
 
     <div class="news-item">
       <div class="news-date">May 2026</div>
+
       <h3>Teaching Excellence for the 2025–2026 Academic Year</h3>
+
       <p class="news-description">
-        Central Ohio Technical College — Recognized for teaching excellence throughout the 2025–2026 academic year.
+        Central Ohio Technical College — Recognized for Teaching Excellence throughout the 2025–2026 Academic Year.
       </p>
     </div>
 
-    <div class="news-item">
-      <div class="news-date">April 2026</div>
-      <h3>Successfully defended my doctoral dissertation</h3>
-      <p class="news-description">
-        The Ohio State University — Completed the final dissertation defense for my PhD in Foreign, Second, and Multilingual Language Education.
-      </p>
-    </div>
-
-    <div class="news-item">
-      <div class="news-date">April 2026</div>
       <h3>
         <a href="https://ehe.osu.edu/news/listing/ohio-state-annual-events-feature-student-research" target="_blank" rel="noopener noreferrer">
-          Featured in Ohio State news for research on AI and accent interpretation
+          Featured in Ohio State News for Research on AI and Accent Interpretation
         </a>
       </h3>
+
       <p class="news-description">
-        The Ohio State University — Featured in a university news story on the Edward F. Hayes Advanced Research Forum for presenting doctoral research on how AI tools interpret the English accents of speakers from different parts of the world.
+        The Ohio State University — Featured in a University News Story on the Edward F. Hayes Advanced Research Forum.
       </p>
     </div>
 
     <div class="news-item">
       <div class="news-date">March 2026</div>
+
       <h3>
-        <a href="https://oia.osu.edu/news/2026/03/24/six-students-awarded-graduate-associate-teaching-awards" target="_blank" rel="noopener noreferrer">
+        <a href="https://oia.osu.edu/news/2026/03/24/six-students-awarded-graduate-associate-teaching-awards?utm_campaign=oia_marketing-activity_fy26&amp;utm_content=1774448908&amp;utm_medium=social&amp;utm_source=linkedin" target="_blank" rel="noopener noreferrer">
           Received the Graduate Associate Teaching Award
         </a>
       </h3>
+
       <p class="news-description">
-        The Ohio State University — Recognized for excellence in teaching and contributions to student learning.
+        The Ohio State University — Recognized for Excellence in Teaching and Contributions to Student Learning.
       </p>
     </div>
 
     <div class="news-item">
       <div class="news-date">March 2026</div>
+
       <h3>
         <a href="https://www.aaal.org/news/congratulations-to-the-gsa-awardee-winners" target="_blank" rel="noopener noreferrer">
           Received the AAAL Graduate Student Award
         </a>
       </h3>
+
       <p class="news-description">
-        American Association for Applied Linguistics — Awarded for best proposal.
+        American Association for Applied Linguistics — Awarded for Best Proposal.
       </p>
     </div>
 
     <div class="news-item">
       <div class="news-date">March 2026</div>
+
       <h3>
         <a href="https://georgiatesoljournal.org/index.php/GATESOL/about/editorialTeam" target="_blank" rel="noopener noreferrer">
-          Joined GATESOL Journal as an associate editor
+          Joined GATESOL Journal as an Associate Editor
         </a>
       </h3>
+
       <p class="news-description">
-        Georgia TESOL Journal — Serving as associate editor for the peer-reviewed publication.
+        Georgia TESOL Journal — Serving as Associate Editor.
       </p>
     </div>
 
     <div class="news-item">
       <div class="news-date">February 2026</div>
+
       <h3>New paper published in <em>Language Awareness</em></h3>
+
       <p class="news-description">
-        Özkaynak, O. &amp; Sayer, P. (2026). Whose English counts? Language ideologies in Turkish TESOL teacher education. <em>Language Awareness</em>.
+        Özkaynak, O., &amp; Sayer, P. (2026). Whose English counts? Language ideologies in Turkish TESOL teacher education. <em>Language Awareness</em>, 1–20.
+        <a class="doi" href="https://doi.org/10.1080/09658416.2026.2625713" target="_blank" rel="noopener">https://doi.org/10.1080/09658416.2026.2625713</a>
       </p>
-      <div class="paper-details">
-        📄 <a href="https://doi.org/10.1080/09658416.2026.2625713" target="_blank" rel="noopener">View article →</a>
-      </div>
     </div>
   </section>
 
@@ -1025,8 +1103,9 @@
     </p>
 
     <h3>Courses Taught</h3>
+
     <ul>
-      <li>Applied Linguistics P1/2: Educational Linguistics, TESOL Methods, Sociolinguistics, and Language Assessment</li>
+      <li>Educational Linguistics, TESOL Methods, Sociolinguistics, and Language Assessment</li>
       <li>ENGL 100: Advanced English Composition Skills for College Students</li>
       <li>EDUTL 5902: Advanced Academic Writing for Multilingual Graduate Students</li>
       <li>EDUTL 1902: Advanced Academic Writing for Multilingual Undergraduate Students</li>
@@ -1048,6 +1127,7 @@
     </p>
 
     <h3>Quantitative Research</h3>
+
     <ul>
       <li>Experimental, survey-based, and explanatory sequential designs</li>
       <li>Descriptive and inferential statistics (t-tests, ANOVA, MANOVA, regression)</li>
@@ -1058,6 +1138,7 @@
     </ul>
 
     <h3>Qualitative Research</h3>
+
     <ul>
       <li>Semi-structured and phenomenological interviews</li>
       <li>Qualitative surveys and participant observation</li>
@@ -1068,6 +1149,7 @@
     </ul>
 
     <h3>Mixed Methods Research</h3>
+
     <ul>
       <li>Explanatory sequential mixed-methods designs (quant → qual)</li>
       <li>Integration of statistical trends with qualitative themes</li>
@@ -1075,6 +1157,7 @@
     </ul>
 
     <h3>Research Tools &amp; Technologies</h3>
+
     <ul>
       <li>Praat (acoustic and phonetic analysis)</li>
       <li>Qualtrics (survey design and administration)</li>
@@ -1111,6 +1194,7 @@
     <h2>Publications</h2>
 
     <h3>Books</h3>
+
     <ul>
       <li>
         Özkaynak, O. (2022). <em>TEFL methodology for pre-service teachers</em>. Dijital Hoca Publishing.
@@ -1118,63 +1202,65 @@
     </ul>
 
     <h3>Peer-Reviewed Journal Articles</h3>
+
     <ul>
       <li>
-        Özkaynak, O. &amp; Arslan, Z. (2026). Neoliberal visions, nationalist missions: A critical discourse analysis of English language teacher education in Türkiye. <em>International Journal of Qualitative Studies in Education</em>, 39(1), 2698433.
-        <a class="doi" href="https://www.tandfonline.com/doi/full/10.1080/09518398.2026.2698433" target="_blank" rel="noopener">https://doi.org/10.1080/09518398.2026.2698433</a>
+        Özkaynak, O., &amp; Arslan, Z. (2026). Neoliberal visions, nationalist missions: A critical discourse analysis of English language teacher education in Türkiye. <em>International Journal of Qualitative Studies in Education, 39</em>(1), 2698433.
+        <a class="doi" href="https://doi.org/10.1080/09518398.2026.2698433" target="_blank" rel="noopener">https://doi.org/10.1080/09518398.2026.2698433</a>
       </li>
 
       <li>
-        Özkaynak, O., Şanal, M., &amp; Arslan, Z. (2026). Teaching social justice in English for academic purposes classrooms: Perspectives from Turkish universities. <em>Profile: Issues in Teachers’ Professional Development</em>, 28(2), 103–118.
+        Özkaynak, O., Şanal, M., &amp; Arslan, Z. (2026). Teaching social justice in English for academic purposes classrooms: Perspectives from Turkish universities. <em>Profile: Issues in Teachers’ Professional Development, 28</em>(2), 103–118.
         <a class="doi" href="https://revistas.unal.edu.co/index.php/profile/article/view/120998" target="_blank" rel="noopener">https://doi.org/10.15446/profile.v28n2.120998</a>
       </li>
 
       <li>
-        Özkaynak, O. &amp; Sayer, P. (2026). Accent and appearance in pre-service English teacher identity: Embodied language ideologies in the political economy of language education in Türkiye. <em>TESOL Journal</em>.
+        Özkaynak, O., &amp; Sayer, P. (2026). Accent and appearance in pre‐service English teacher identity: Embodied language ideologies in the political economy of language education in Türkiye. <em>TESOL Journal, 17</em>(3), e70136.
         <a class="doi" href="https://doi.org/10.1002/tesj.70136" target="_blank" rel="noopener">https://doi.org/10.1002/tesj.70136</a>
       </li>
 
       <li>
-        Özkaynak, O. &amp; Sayer, P. (2026). Whose English counts? Language ideologies in Turkish TESOL teacher education. <em>Language Awareness</em>.
+        Özkaynak, O., &amp; Sayer, P. (2026). Whose English counts? Language ideologies in Turkish TESOL teacher education. <em>Language Awareness</em>, 1–20.
         <a class="doi" href="https://doi.org/10.1080/09658416.2026.2625713" target="_blank" rel="noopener">https://doi.org/10.1080/09658416.2026.2625713</a>
       </li>
 
       <li>
-        Özkaynak, O. (2025). State monolingualism and its emotional impacts on multilingual identity construction. <em>International Journal of Multilingualism</em>.
+        Özkaynak, O. (2025). State monolingualism and its emotional impacts on multilingual identity construction: Insights from the Turkish context. <em>International Journal of Multilingualism, 22</em>(4), 2754–2769.
         <a class="doi" href="https://doi.org/10.1080/14790718.2025.2485178" target="_blank" rel="noopener">https://doi.org/10.1080/14790718.2025.2485178</a>
       </li>
 
       <li>
-        Özkaynak, O., &amp; Peker, H. (2025). Translanguaging practices and L2 motivational self system. <em>Translation and Translanguaging in Multilingual Contexts</em>.
+        Özkaynak, O., &amp; Peker, H. (2026). The role of translanguaging in shaping L2 motivation: A study of multilingual EFL learners. <em>Translation and Translanguaging in Multilingual Contexts, 12</em>(1), 48–75.
         <a class="doi" href="https://doi.org/10.1075/ttmc.00177.ozk" target="_blank" rel="noopener">https://doi.org/10.1075/ttmc.00177.ozk</a>
       </li>
 
       <li>
-        Şanal, M., &amp; Özkaynak, O. (2023). Raising multilingual learners' awareness of social justice. <em>Focus on ELT Journal</em>, 5(2), 1–20.
+        Şanal, M., &amp; Özkaynak, O. (2023). Raising multilingual learners’ awareness of social justice through translanguaging pedagogy. <em>Focus on ELT Journal, 5</em>(2), 1–20.
         <a class="doi" href="https://doi.org/10.14744/felt.2023.5.2.1" target="_blank" rel="noopener">https://doi.org/10.14744/felt.2023.5.2.1</a>
       </li>
 
       <li>
-        Özkaynak, O. (2023). Family language policies of Turkish parents in the United States. <em>Journal of Multilingual and Multicultural Development</em>, 46(7), 2031–2047.
+        Özkaynak, O. (2025). ‘I don’t want them to be monolingual like Americans’: Family language policies of Turkish parents in the United States. <em>Journal of Multilingual and Multicultural Development, 46</em>(7), 2031–2047.
         <a class="doi" href="https://doi.org/10.1080/01434632.2023.2277228" target="_blank" rel="noopener">https://doi.org/10.1080/01434632.2023.2277228</a>
       </li>
 
       <li>
-        Özkaynak, O. (2023). Translanguaging in applied linguistics: A comprehensive systematic review. <em>L2 Journal</em>, 15(1).
+        Özkaynak, O. (2023). Translanguaging in applied linguistics: A comprehensive systematic review. <em>L2 Journal, 15</em>(1), 1–23.
         <a class="doi" href="https://doi.org/10.5070/L2.2460" target="_blank" rel="noopener">https://doi.org/10.5070/L2.2460</a>
       </li>
 
       <li>
-        Peker, H., &amp; Özkaynak, O. (2020). A critical review on the equivocal definition of comprehensible input. <em>Journal of Language Education and Research</em>, 6(11), 238–250.
+        Peker, H., &amp; Özkaynak, O. (2020). A critical review on the equivocal definition of comprehensible input and the misleading use of the term “acquisition.” <em>Journal of Language Education and Research, 6</em>(1), 238–250.
         <a class="doi" href="https://doi.org/10.31464/jlere.617587" target="_blank" rel="noopener">https://doi.org/10.31464/jlere.617587</a>
       </li>
 
       <li>
-        Peker, H., Özkaynak, O., Arslan, Z., &amp; Tunç, H. (2019). A case study on the perceptions of professional development unit members at an EFL program. <em>International Journal of Curriculum and Instruction</em>, 11(2), 238–254.
+        Peker, H., Özkaynak, O., Arslan, Z., &amp; Tunç, H. (2019). A case study on the perceptions of professional development unit members at an EFL program. <em>International Journal of Curriculum and Instruction, 11</em>(2), 238–254.
       </li>
     </ul>
 
     <h3>Book Reviews</h3>
+
     <ul>
       <li>
         Özkaynak, O. (2026). [Review of the book <em>Decolonising language teacher education: Voices from the Global North and Global South</em>, edited by F. Ehlers-Zavala, M. Back, &amp; Y. Ortega]. <em>Journal of Language, Identity and Education</em>.
@@ -1187,16 +1273,16 @@
       </li>
 
       <li>
-        Özkaynak, O. &amp; Peker, H. (2023). [Review of the book <em>Translation and translanguaging</em>, edited by M. Baynham &amp; T. K. Lee]. <em>MEXTESOL Journal</em>, 47(2).
+        Özkaynak, O., &amp; Peker, H. (2023). [Review of the book <em>Translation and translanguaging</em>, edited by M. Baynham &amp; T. K. Lee]. <em>MEXTESOL Journal, 47</em>(2).
       </li>
 
       <li>
-        Özkaynak, O. (2023). [Review of the book <em>Multilingual perspectives on translanguaging</em>, edited by J. MacSwan]. <em>TESOL Journal</em>, 15(1).
+        Özkaynak, O. (2024). [Review of the book <em>Multilingual perspectives on translanguaging</em>, edited by J. MacSwan]. <em>TESOL Journal, 15</em>(1), e724.
         <a class="doi" href="https://doi.org/10.1002/tesj.724" target="_blank" rel="noopener">https://doi.org/10.1002/tesj.724</a>
       </li>
 
       <li>
-        Özkaynak, O. (2023). [Review of the book <em>Translingual discrimination</em>, by S. Dovchin]. <em>International Journal of Multilingualism</em>, 21(3), 1734–1737.
+        Özkaynak, O. (2024). [Review of the book <em>Translingual discrimination</em>, by S. Dovchin]. <em>International Journal of Multilingualism, 21</em>(3), 1734–1737.
         <a class="doi" href="https://doi.org/10.1080/14790718.2022.2164771" target="_blank" rel="noopener">https://doi.org/10.1080/14790718.2022.2164771</a>
       </li>
     </ul>
@@ -1207,48 +1293,86 @@
     <h2>Presentations</h2>
 
     <h3>Conference Presentations</h3>
+
     <ul>
       <li>Özkaynak, O., Arslan, Z., &amp; Sayer, P. (2026). Does Gemini do vocal stereotyping? A verbal guise study of accent ideologies in TESOL. 2026 CALICO, Oxford, Ohio, USA (Paper presentation).</li>
+
       <li>Özkaynak, O. (2026). Performing neutrality, enacting bias: Language ideologies and the evaluation of Global Englishes in U.S. TESOL. 2026 American Association for Applied Linguistics Conference, Chicago, Illinois, USA (Paper presentation).</li>
+
       <li>Özkaynak, O. (2026). Neutrality or normativity? Pre-service TESOL teachers' language ideologies in a Global Englishes context. 2026 American Educational Research Association Annual Meeting, Los Angeles, California, USA (Paper presentation).</li>
+
       <li>Özkaynak, O. (2026). Neutrality isn't innocent: Accent ideologies and the politics of legitimacy in TESOL teacher education. 2026 Annual Meeting of the Comparative and International Education Society, San Francisco, California, USA (Paper presentation).</li>
+
       <li>Özkaynak, O. (2025). Exploring TESOL teacher candidates' language ideologies through a sequential mixed methods approach. Canadian Association of Applied Linguistics Conference. Toronto, Canada. (Paper presentation).</li>
+
       <li>Özkaynak, O., &amp; Arslan, Z. (2024). Exploring language ideologies of Instagram teachers. The Fifth Symposium of Southern Ontario Universities, Canada. (Poster presentation).</li>
+
       <li>Özkaynak, O., &amp; Schaffner, C. (2024). Empowering adult English language learners in TESOL through translanguaging: A strength-based approach. Ohio TESOL 2024 Conference, USA. (Paper presentation).</li>
+
       <li>Özkaynak, O. (2024). Unveiling Turkey's multilingual tapestry: Exploring identity, language ideologies, and policy implications. Sociolinguistic Symposium 25. Curtin University, Perth, Australia. (Paper presentation).</li>
+
       <li>Özkaynak, O. (2024). Enhancing multilingual learners' social justice awareness through translanguaging pedagogy. Cultivating the Pedagogy of Translanguaging. The Translanguaging Institute. New Mexico, USA. (Paper presentation).</li>
+
       <li>Özkaynak, O. (2024). Translingual pedagogies: Decolonizing academic writing for multilingual students. TESOL Colombia VI. Bogotá, Colombia. (Paper presentation).</li>
+
       <li>Şanal, M., &amp; Özkaynak, O. (2024). Raising multilingual learners' awareness of social justice through translanguaging pedagogy. 2024 TESOL Convention. Tampa, USA. (Paper presentation).</li>
+
       <li>Özkaynak, O. (2024). Translanguaging and motivation in multilingual EFL learners: Unveiling the nexus. 2024 TESOL Convention. Tampa, USA. (Paper presentation).</li>
+
       <li>Özkaynak, O. (2024). Language ideologies and heritage language maintenance among Turkish families in the United States. 2024 American Association for Applied Linguistics Conference, Houston, Texas, USA (Poster presentation).</li>
+
       <li>Özkaynak, O., &amp; Sayer, P. (2024). Unraveling language ideologies in Turkish pre-service EFL teachers' perception of Global Englishes. 2024 American Association for Applied Linguistics Conference, Houston, Texas, USA (Paper presentation).</li>
+
       <li>Özkaynak, O. (2024). Exploring multilingualism in Turkey: Embracing linguistic diversity and cultivating inclusive identities. 2024 American Association for Applied Linguistics Conference, Houston, Texas, USA (Paper presentation).</li>
+
       <li>Özkaynak, O. (2024). Multilingualism in Türkiye: Examining identity development through the lens of perezhivanie. EHE Research Forum. The Ohio State University, USA (Paper presentation).</li>
+
       <li>Özkaynak, O. (2023). Family language policies of Turkish immigrant parents in the United States. BMRS2023 — Bilingualism Matters Research Symposium 2023. University of South Carolina, USA (Poster presentation).</li>
+
       <li>Özkaynak, O. (2023). Leveraging learners' home languages for teaching English: Increasing motivation, reducing anxiety, and fostering equity. Ohio TESOL 2023 Conference, USA. (Paper presentation).</li>
+
       <li>Özkaynak, O. (2023). Exploring Turkish immigrant parents' language ideologies: Maintaining Turkish as a heritage language in the United States. International Symposium on Teaching Turkish as a Heritage and Foreign Language, Brussels, Belgium. (Paper presentation).</li>
+
       <li>Özkaynak, O. (2023). Maintaining Turkish as a heritage language: Insights from Turkish immigrant parents in the United States. International Symposium on New Trends in Language Studies. Social Sciences University of Ankara. (Paper presentation).</li>
+
       <li>Özkaynak, O. (2023). Translanguaging: An exploration of its impact on motivation among multilingual language learners. CCERBAL 2023. Ottawa, Canada. (Paper presentation).</li>
+
       <li>Özkaynak, O., &amp; Sayer, P. (2023). Attitudes of pre-service EFL teachers in Turkey toward varieties of English. 2023 TESOL Convention. Portland, USA. (Paper presentation).</li>
+
       <li>Wong, W., Özkaynak, O., Diallo, T., Branch, R., &amp; Luchon, A. (2023). Structured input for diverse languages and learners. CSCTFL Conference. Columbus, USA. (Workshop).</li>
+
       <li>Özkaynak, O. (2023). Attitudes of Turkish pre-service EFL teachers toward varieties of English. EHE Research Forum. The Ohio State University, USA (Paper presentation).</li>
+
       <li>Özkaynak, O. (2022). Effects of translanguaging on foreign language learning anxiety and motivation. Sunshine State TESOL. Florida, USA. (Paper presentation).</li>
+
       <li>Özkaynak, O. (2021). Translanguaging practices for leveraging multilingual learners' writing skills in English. FLRT Graduate Student Symposium. Columbus, USA. (Paper presentation).</li>
+
       <li>Özkaynak, O. (2021). Attitudes of Turkish EFL learners toward varieties of English. Sociolinguistics Colloquium. Columbus, USA. (Paper presentation).</li>
+
       <li>Özkaynak, O., Arslan, Z., &amp; Tunç, H. (2019). Self-efficacy and attitudes of teacher trainers towards professional development activities. The 19th INGED International ELT Conference. Ankara, Turkey. (Paper presentation).</li>
+
       <li>Özkaynak, O. (2010). Attitudes toward semantic change. Geltus-Con, Gazi University. Ankara, Turkey. (Paper presentation).</li>
     </ul>
 
     <h3>Invited Talks &amp; Webinars</h3>
+
     <ul>
       <li>Özkaynak, O. (2026). Sounding legitimate: Accentism, racialization, and the politics of voice in TESOL. Diversity Matters Webinar Series, Institute for Applied Linguistics &amp; Centre for Migration and Societal Change, Eurac Research, Italy.</li>
+
       <li>Özkaynak, O. (2025). Who gets to sound like an English teacher? Universidad Casa Grande, Guayaquil, Ecuador. Webinar.</li>
+
       <li>Özkaynak, O. (2025). Sounding right to teach right? Accentism and the racial politics of legitimacy in TESOL teacher education. Counteracting Accent Discrimination in Education Practices (EU-funded).</li>
+
       <li>Özkaynak, O. (2025). Integrating insights: Mixed methods approaches in TESOL. MEF University, MA TESOL Program, Istanbul, Turkey.</li>
+
       <li>Özkaynak, O. (2024). Phenomenology as a qualitative research method. University of Missouri, Department of Learning, Teaching, and Curriculum.</li>
+
       <li>Özkaynak, O. (2024). PhD candidacy workshop. The Ohio State University, Department of Teaching and Learning.</li>
+
       <li>Özkaynak, O. (2024). Navigating interviews as qualitative research. Youth Center for Research.</li>
+
       <li>Özkaynak, O. (2024). How can TESOL teachers provide opportunities for students to be successful by using their home language as a resource? Ohio Department of Education.</li>
+
       <li>Özkaynak, O. (2020). English language education in mainstream public schools in Turkey. Ministry of National Education of Turkey.</li>
     </ul>
   </section>
@@ -1257,10 +1381,12 @@
   <section id="contact">
     <h2>Contact</h2>
 
-    <p>Feel free to reach out via email or connect with me on academic platforms.</p>
+    <p>
+      Feel free to reach out via email or connect with me on academic platforms.
+    </p>
 
     <div class="contact-icons">
-      <a href="mailto:ozkaynak.2@osu.edu" class="contact-icon email" title="Email">
+      <a href="mailto:ozkaynak.2@osu.edu" class="contact-icon email" title="Email: ozkaynak.2@osu.edu">
         <div class="icon-container">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
@@ -1269,7 +1395,7 @@
         <div class="icon-label">Email</div>
       </a>
 
-      <a href="https://scholar.google.com/citations?user=W3Mw81kAAAAJ&amp;hl=en" class="contact-icon scholar" title="Google Scholar" target="_blank" rel="noopener">
+      <a href="https://scholar.google.com/citations?user=W3Mw81kAAAAJ&amp;hl=en&amp;authuser=1" class="contact-icon scholar" title="Google Scholar" target="_blank" rel="noopener">
         <div class="icon-container">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
@@ -1278,7 +1404,7 @@
         <div class="icon-label">Scholar</div>
       </a>
 
-      <a href="https://www.researchgate.net/profile/Onur-Oezkaynak" class="contact-icon researchgate" title="ResearchGate" target="_blank" rel="noopener">
+      <a href="https://www.researchgate.net/profile/Onur-Oezkaynak?ev=hdr_xprf" class="contact-icon researchgate" title="ResearchGate" target="_blank" rel="noopener">
         <div class="icon-container">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
@@ -1306,41 +1432,30 @@
       </a>
     </div>
   </section>
-
 </main>
 
 <footer>
   © 2026 Dr. Onur Özkaynak
 </footer>
 
-<button id="backToTop" type="button" title="Back to top" aria-label="Back to top">
-  ↑
-</button>
+<button id="backToTop" type="button" title="Back to top" aria-label="Back to top">↑</button>
 
 <script>
-  const backToTopButton = document.getElementById("backToTop");
-  const navigation = document.querySelector("nav");
+  const backToTopButton = document.getElementById('backToTop');
+  const navigation = document.querySelector('nav');
 
   const updatePageState = () => {
-    backToTopButton.style.display =
-      window.scrollY > 500 ? "flex" : "none";
-
-    navigation.classList.toggle(
-      "scrolled",
-      window.scrollY > 10
-    );
+    backToTopButton.style.display = window.scrollY > 500 ? 'flex' : 'none';
+    navigation.classList.toggle('scrolled', window.scrollY > 10);
   };
 
-  window.addEventListener("scroll", updatePageState, {
-    passive: true
-  });
-
+  window.addEventListener('scroll', updatePageState, { passive: true });
   updatePageState();
 
-  backToTopButton.addEventListener("click", () => {
+  backToTopButton.addEventListener('click', () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: 'smooth'
     });
   });
 </script>
